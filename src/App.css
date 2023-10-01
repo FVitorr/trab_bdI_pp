@@ -1,0 +1,17 @@
+#root {
+  max-height: 100vh;
+  max-width: 100vw;
+  width: 100%;
+  height: 100%;
+  background-color: #D7D4FF;
+}
+
+html, body{
+  background-color: #D7D4FF;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
