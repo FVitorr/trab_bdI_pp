@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+
 
 import { Container } from "./styles";
 import Pedidos from "../Pedidos";
 
 const Header: React.FC = () => {
-  const [exibirPedidos, setExibirPedidos] = useState(false);
 
   return (
     <Container>
-      <button onClick={() => setExibirPedidos(true)}>Pedidos</button>
-      {exibirPedidos ? <Pedidos /> : null}
+      <button><Link to="/">PontoPerfeito</Link></button>
         <button>Itens</button>
         <button>Clientes</button>
         <button>Pagamentos</button>
-        <button>Pedidos</button>
+        <button><Link to="/pedidos">Pedidos</Link></button>
     </ Container>
   );
 };

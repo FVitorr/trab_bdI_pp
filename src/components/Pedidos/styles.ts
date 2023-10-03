@@ -11,3 +11,48 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const Formulario = styled.div`
+  padding: 0 0 3rem 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  >p{
+    font-size: 3rem;
+  }
+
+  >input{
+    width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+  }
+
+  >div{
+    display: flex;
+    gap: 1rem;
+  >button {
+    padding: 8px;
+    border-radius: 5%;
+
+    width: 13rem;
+    font-size: 1.5rem;
+
+    outline: 0;
+    cursor: pointer;
+
+    background-color: #6C63FF;
+    color: #FFFFFF;
+
+    &:hover{
+      background: #594fff;
+    }
+}
+
+}
+`;
+
+

@@ -16,7 +16,10 @@ export const Container = styled.div`
   padding: 8px 0 9px 13px;
   border-bottom: 1px solid #D7D4FF;
 
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
   >button {
+    >a{
     padding: 8px;
     border-radius: 5%;
 
@@ -32,5 +35,25 @@ export const Container = styled.div`
     &:hover{
       background: #594fff;
     }
+    }
   }
+
+    >button {
+      padding: 8px;
+      border-radius: 5%;
+  
+      width: 13rem;
+      font-size: 1.5rem;
+  
+      outline: 0;
+      cursor: pointer;
+  
+      background-color: #6C63FF;
+      color: #FFFFFF;
+  
+      &:hover{
+        background: #594fff;
+      }
+  }
+}
 `;
