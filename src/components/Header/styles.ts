@@ -18,8 +18,8 @@ export const Container = styled.div`
 
   box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
 
-  >button {
-    >a{
+  >a {
+    >button{
     padding: 8px;
     border-radius: 5%;
 
@@ -55,5 +55,4 @@ export const Container = styled.div`
         background: #594fff;
       }
   }
-}
 `;

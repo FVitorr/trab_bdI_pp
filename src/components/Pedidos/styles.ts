@@ -22,13 +22,16 @@ export const Formulario = styled.div`
 
   >p{
     font-size: 3rem;
+    color: #2B2B2B;
   }
 
   >input{
-    width: 80%;
-    padding: 1rem;
-    border-radius: 1rem;
+    min-width: 80%;
+    padding: 1rem 2rem 1rem;
+    border-radius: 0.5rem;
     border: none;
+    background-color:#FFFFFF;
+    color: #2B2B2B;
   }
 
   >div{

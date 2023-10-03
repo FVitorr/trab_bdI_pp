@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, InfoPedido, Imagem } from "./styles";
+import { Container, InfoPedido, ItensPedido } from "./styles";
 
 interface Props{
   name: string;
   valor: number;
+  status: string;
   itens: string[];
 }
 
-const Pedido: React.FC<Props> = ({name, valor, itens}) => {
+const Pedido: React.FC<Props> = ({name, valor, itens, status}) => {
   const itensFormatados = itens.join(", ");
 
   return (
     <Container>
-    <Imagem />
     <InfoPedido>
-    <div>
     <p>{name}</p>
     <p>R$ {valor}</p>
-    </div>
-    <p>{itensFormatados}</p>
+    <p>{status}</p>
     </InfoPedido>
+    <ItensPedido>
+    <p>{itensFormatados}</p>
+    </ItensPedido>
     </Container>
   );
 };
