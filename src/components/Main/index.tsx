@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import maquina from './../../assets/maquina.png';
 import PedidosAbertos from "../PedidosAbertos";
 import Header from "../Header";
 import Footer from "../Footer";

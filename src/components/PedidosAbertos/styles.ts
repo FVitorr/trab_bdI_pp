@@ -8,5 +8,5 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
 `;
