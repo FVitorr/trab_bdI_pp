@@ -1,45 +1,26 @@
 import styled, {css} from "styled-components";
 
 export const Container = styled.div`
-  margin: 50px 20px;
-  background-color: #FFFFFF;
-  width: 320px;
-  max-width: 320px;
-  height: 423px;
-  max-height: 423px;
-
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-  background-color: #FFFFFF;
-
+  /* margin-top: 1rem; */
+  width: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center
 `;
 
 export const InfoCliente = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
-  padding: 30px;
-  background-color: #FFFFFF;
-  max-height: 50%;
-  height: 50%;
-  gap: 20px;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 17px;
+
+  text-align:left;
+  /* gap:1rem; */
   >p{
-    color: #2B2B2B;
-  }
-  >div{
-    color: #2B2B2B;
-    /* display: flex; */
-    justify-content: space-between;
-    >p{
-    
-    margin: 0;
-  }
-    
-    font-size: 18px;
-    font-weight: bold;
+    border:1px solid white;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    padding-left: 1rem;
+    display:flex;
+    align-items: center;
   }
 `;

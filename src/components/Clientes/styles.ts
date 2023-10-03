@@ -8,6 +8,8 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  color: black;
 `;
 
 export const Formulario = styled.div`
@@ -17,6 +19,7 @@ export const Formulario = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
   >p{
     font-size: 3rem;
@@ -33,25 +36,45 @@ export const Formulario = styled.div`
   >div{
     display: flex;
     gap: 1rem;
-  >button {
-    padding: 8px;
-    border-radius: 5%;
+    >button {
+      padding: 8px;
+      border-radius: 5%;
 
-    width: 13rem;
-    font-size: 1.5rem;
+      width: 13rem;
+      font-size: 1.5rem;
 
-    outline: 0;
-    cursor: pointer;
+      outline: 0;
+      cursor: pointer;
 
-    background-color: #6C63FF;
-    color: #FFFFFF;
+      background-color: #6C63FF;
+      color: #FFFFFF;
 
-    &:hover{
-      background: #594fff;
+      &:hover{
+        background: #594fff;
+      }
     }
-}
+  }
+`;
 
-}
+export const Descriptions = styled.div`
+  margin-top:2rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  text-align:left;
+
+  
+
+  width:80%;
+  /* gap:1rem; */
+
+
+  >p{
+    border:1px solid #D7D4FF;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    padding: 0.5rem;
+    background-color:#6C63FF;
+    color:white;
+  }
 `;
 
 

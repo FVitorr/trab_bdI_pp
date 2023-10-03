@@ -8,9 +8,9 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <Link to="/"><button>PontoPerfeito</button></Link>
+        <Link to="/"><button>PontoPerfeito</button></Link>
         <button>Itens</button>
-        <button>Clientes</button>
+        <Link to="/clientes"><button>Clientes</button></Link>
         <button>Pagamentos</button>
         <Link to="/pedidos"><button>Pedidos</button></Link>
     </ Container>
