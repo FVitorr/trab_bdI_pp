@@ -2,7 +2,6 @@ import styled, {css} from "styled-components";
 
 export const Container = styled.div`
   margin: 0 auto;
-  
   font-family: 'Merriweather', serif;
   /* min-width: 100%; */
   min-height: 100%;

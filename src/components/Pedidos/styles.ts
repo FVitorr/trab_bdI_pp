@@ -1,15 +1,19 @@
 import styled, {css} from "styled-components";
 
 export const Container = styled.div`
-  margin: 0 auto;
+  background-color: #DCDCDC;
   
   font-family: 'Merriweather', serif;
   /* min-width: 100%; */
-  min-height: 100%;
-  width: 1280px;
-  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  >div{
+    width: 1280px;
+    /* margin: 0 auto; */
+    margin: 20px auto 0px auto;
+
+  }
 `;
 
 export const Formulario = styled.div`
@@ -21,23 +25,25 @@ export const Formulario = styled.div`
   justify-content: center;
 
   >p{
-    font-size: 3rem;
-    color: #2B2B2B;
+    font-size: 2rem;
+    color: black;
   }
 
   >input{
-    min-width: 80%;
+    max-width: 50%;
+    min-width: 50%;
     padding: 1rem 2rem 1rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 1px solid rgba(0,0,0,0.1);
     background-color:#FFFFFF;
-    color: #2B2B2B;
+    color: #3F4373;
   }
 
   >div{
     display: flex;
     gap: 1rem;
   >button {
+    margin-top:1rem;
     padding: 8px;
     border-radius: 5%;
 

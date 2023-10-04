@@ -8,14 +8,15 @@ import { Container } from "./styles";
 
 const Main: React.FC = () => {
   return (
-    <Container>
-
+    <>
       <Header />
-      <InfoPP />
-      <PedidosAbertos />
-      <Footer />
-      
-    </ Container>
+      <Container>
+          <InfoPP />
+          {/* <PedidosAbertos />
+          <Footer /> */}
+      </ Container>
+    </>
+
   );
 };
 

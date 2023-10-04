@@ -3,14 +3,14 @@ import styled, {css} from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  background-color: #D7D4FF;
+  align-items: left;
+  /* background-color: #D7D4FF; */
+  background: transparent;
 
-
-  padding: 10rem 0;
+  padding: 5rem 0;
 
     >p {
-    color: #2B2B2B;
+    color: #FFFFFF;
     font-size: 1.4rem;
   }
 `;

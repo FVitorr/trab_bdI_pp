@@ -10,8 +10,8 @@ import Footer from "../Footer";
 const Clientes: React.FC = () => {
   return (
     <>
+    <Header />
     <Container>
-      <Header />
       <Formulario>
         <p>Cliente</p>
         <input placeholder="Nome" type="text" />

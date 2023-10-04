@@ -9,7 +9,7 @@ export const Container = styled.div`
   position: sticky;
   top: 0;
 
-  background-color: ${(props) => (props.scrolled ? "#3e4398" : "transparent")};
+  background-color: #392E6D;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -29,9 +29,5 @@ export const Container = styled.div`
     outline: 0;
     cursor: pointer;
     color: #BEA187;
-
-    &:hover {
-      color: #F1C40F; /* Altere para a cor desejada ao passar o mouse */
-    }
   }
 `;
