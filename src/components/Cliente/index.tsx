@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, InfoCliente} from "./styles";
+import { Container, InfoCliente } from "./styles";
 
-interface Props{
+interface Props {
   name: string;
   endereco: string;
   telefone: string;
   email: string;
 }
 
-const Cliente: React.FC<Props> = ({name, endereco, telefone, email}) => {
+const Cliente: React.FC<Props> = ({ name, endereco, telefone, email }) => {
 
   return (
     <Container>
-      <InfoCliente>  
+      <InfoCliente>
         <p>{name}</p>
         <p>{endereco}</p>
         <p>{telefone}</p>

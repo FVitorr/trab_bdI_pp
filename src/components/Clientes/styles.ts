@@ -1,16 +1,37 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  margin: 0 auto;
-  font-family: 'Merriweather', serif;
-  min-height: 100%;
-  width: 1280px;
+  background-color: #DCDCDC;
+  
   height: 100%;
+  min-height: 100vh;
+  font-family: 'Merriweather', serif;
+  /* min-width: 100%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: black;
+  >div{
+    width: 1280px;
+    /* margin: 0 auto; */
+    margin: 20px auto 0px auto;
+
+  }
 `;
+
+export const ListClientes = styled.div`
+
+width: 100%;
+/* background-color: #C0C0C0; */
+border-radius: 1rem;
+gap: 0.5rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+margin-bottom: 50px;
+/* box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1); */
+`
 
 export const Formulario = styled.div`
   padding: 0 0 3rem 0;
@@ -19,42 +40,47 @@ export const Formulario = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 
   >p{
-    font-size: 3rem;
+    font-size: 2rem;
+    color: black;
   }
 
   >input{
-    min-width: 80%;
+    max-width: 50%;
+    min-width: 50%;
     padding: 1rem 2rem 1rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 1px solid rgba(0,0,0,0.1);
     background-color:#FFFFFF;
+    color: #3F4373;
   }
 
   >div{
     display: flex;
     gap: 1rem;
-    >button {
-      padding: 8px;
-      border-radius: 5%;
+  >button {
+    margin-top:1rem;
+    padding: 8px;
+    border-radius: 5%;
 
-      width: 13rem;
-      font-size: 1.5rem;
+    width: 13rem;
+    font-size: 1.5rem;
 
-      outline: 0;
-      cursor: pointer;
+    outline: 0;
+    cursor: pointer;
 
-      background-color: #6C63FF;
-      color: #FFFFFF;
+    background-color: #6C63FF;
+    color: #FFFFFF;
 
-      &:hover{
-        background: #594fff;
-      }
+    &:hover{
+      background: #594fff;
     }
-  }
+}
+
+}
 `;
+
 
 export const Descriptions = styled.div`
   margin-top:2rem;

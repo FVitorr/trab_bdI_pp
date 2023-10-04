@@ -12,13 +12,13 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const InfoCliente = styled.div`
+export const InfoPagamento = styled.div`
 text-align: center;
   width: 100%;
   gap: 0.5rem;
   max-height: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
   font-size: 17px;
   >p{
     border-radius: 1rem;
@@ -35,5 +35,20 @@ text-align: center;
     width:100%;
     height: 5rem;
     padding-left: 2rem;
+  }
+
+  >div{
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #2B2B2B;
+    background-color: #C0C0C0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    width:100%;
+    height: 5rem;
+    // padding-left: 2rem;
   }
 `;

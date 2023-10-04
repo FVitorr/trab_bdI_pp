@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-height: 100vh;
@@ -11,6 +11,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-end;
   position: relative;
+  >img{
+    max-width: 720px;
+    max-height: 720px;
+  }
 `;
 
 export const TextOverlay = styled.div`

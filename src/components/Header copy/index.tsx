@@ -10,11 +10,15 @@ const Header: React.FC = () => {
       <Link to="/">
         <button>INICIO</button>
       </Link>
-      <button>ITENS</button>
+      <Link to="/itens">
+        <button>ITENS</button>
+      </Link>
       <Link to="/clientes">
         <button>CLIENTES</button>
       </Link>
-      <button>PAGAMENTOS</button>
+      <Link to="/pagamentos">
+        <button>PAGAMENTOS</button>
+      </Link>
       <Link to="/pedidos">
         <button>PEDIDOS</button>
       </Link>

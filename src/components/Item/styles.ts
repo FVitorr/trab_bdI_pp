@@ -12,13 +12,13 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const InfoCliente = styled.div`
+export const InfoItem = styled.div`
 text-align: center;
   width: 100%;
   gap: 0.5rem;
   max-height: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   font-size: 17px;
   >p{
     border-radius: 1rem;
