@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DeleteIcon from "@styled-icons/typicons/Delete"
 
 import { Container, InfoPagamento } from "./styles";
 
@@ -9,7 +8,6 @@ interface Props {
   status: string;
 }
 
-
 const Pagamento: React.FC<Props> = ({ pedido, valor, status }) => {
 
   return (
@@ -18,7 +16,7 @@ const Pagamento: React.FC<Props> = ({ pedido, valor, status }) => {
         <p>{pedido}</p>
         <p>R$ {valor}</p>
         <p>{status}</p>
-        <div><a>P</a><a>{DeleteIcon}</a></div>
+        <div><a>P</a><a>D</a></div>
       </InfoPagamento>
     </Container>
   );
