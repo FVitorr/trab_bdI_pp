@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
 
+import {CheckCircleFill} from "@styled-icons/bootstrap/CheckCircleFill";
+
+import {EyeOutline} from "@styled-icons/evaicons-outline/EyeOutline"
+
 export const Container = styled.div`
   margin: 0px 0px 0px 0px;
   width: 100%;
@@ -52,3 +56,15 @@ text-align: center;
     // padding-left: 2rem;
   }
 `;
+
+export const Check = styled(CheckCircleFill)`
+  color: #392E6D;
+  width: 32px;
+`
+
+export const View = styled(EyeOutline)`
+  color: #392E6D;
+  width: 32px;
+  border: 1px solid black;
+  border-radius: 10px;
+`

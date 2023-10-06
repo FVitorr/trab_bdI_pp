@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, InfoPagamento } from "./styles";
+import { Container, InfoPagamento, Check, View } from "./styles";
 
 interface Props {
   pedido: string;
@@ -16,7 +16,7 @@ const Pagamento: React.FC<Props> = ({ pedido, valor, status }) => {
         <p>{pedido}</p>
         <p>R$ {valor}</p>
         <p>{status}</p>
-        <div><a>P</a><a>D</a></div>
+        <div><View/><Check/></div>
       </InfoPagamento>
     </Container>
   );

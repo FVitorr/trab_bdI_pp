@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { Container, Formulario, ListClientes } from "./styles";
 import Cliente from "../Cliente";
