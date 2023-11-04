@@ -9,14 +9,16 @@ interface Props {
 }
 
 const Pagamento: React.FC<Props> = ({ pedido, valor, status }) => {
-
   return (
     <Container>
       <InfoPagamento>
         <p>{pedido}</p>
         <p>R$ {valor}</p>
         <p>{status}</p>
-        <div><View/><Check/></div>
+        <div>
+          <View />
+          <Check />
+        </div>
       </InfoPagamento>
     </Container>
   );

@@ -58,13 +58,12 @@ text-align: center;
 `;
 
 export const Check = styled(CheckCircleFill)`
-  color: #392E6D;
+  color: #228b22;
   width: 32px;
 `
 
 export const View = styled(EyeOutline)`
-  color: #392E6D;
-  width: 32px;
-  border: 1px solid black;
+  color: #bf3eff;
+  width: 40px;
   border-radius: 10px;
 `
