@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 import { Container, Formulario, ListPagamentos } from "./styles";
 import Pagamento from "../Pagamento";
 import Header from "../Header copy";
 
+export interface IPagamento {
+  pedido: string;
+  valor: number;
+  status: string;
+}
+
 const Pagamentos: React.FC = () => {
-  let data
-  let response
+  const [pagamentos, setPagamentos] = useState<IPagamento[]>([]);
+
+  const getPagamentos = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/pagamentos');
+      const pagamentosResponse: IPagamento[] = response.data; // Recebe a lista de pagamentos do servidor
+      console.log("pagamentosResponse", pagamentosResponse);
+      setPagamentos(pagamentosResponse); // Atualiza o estado pagamentos com a lista recebida do servidor
+    } catch (error) {
+      console.error('Erro ao buscar pagamentos:', error);
+    }
+  };
+
   useEffect(() => {
-    // Chama a API quando o componente é montado
-    const fetchData = async () => {
-      try {
-        response = await fetch("http://localhost:8080/testes"); // Substitua "/testes" pelo URL real da sua API
-        data = await response.json();
-        console.log(response, data)
+    getPagamentos();
+  }, []);
 
-        // Faça algo com os dados da API, se necessário
-      } catch (error) {
-        console.error("Erro ao chamar a API:", error);
-      }
-    };
-
-    fetchData(); // Chama a função de busca quando o componente é montado
-
-    // Cleanup da função de efeito (opcional)
-    return () => {
-      // Alguma lógica de limpeza, se necessário
-    };
-  }, []); // O segundo argumento vazio faz com que o efeito seja executado apenas uma vez, quando o componente é montado
   return (
     <>
       <Header />
@@ -38,13 +39,12 @@ const Pagamentos: React.FC = () => {
           </Formulario>
 
           <ListPagamentos>
-            <Pagamento pedido={"Joao"} valor={50.00} status={"Pendente"} />
-            <Pagamento pedido={"Joao"} valor={50.00} status={"Pendente"} />
-            <Pagamento pedido={"Joao"} valor={50.00} status={"Pendente"} />
-            <Pagamento pedido={"Joao"} valor={50.00} status={"Pendente"} />
+            {pagamentos.map((pagamento) => (
+              <Pagamento key={pagamento.pedido} pedido={pagamento.pedido} valor={pagamento.valor} status={pagamento.status} />
+            ))}
           </ListPagamentos>
         </div>
-      </ Container>
+      </Container>
     </>
   );
 };
