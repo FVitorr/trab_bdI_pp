@@ -4,7 +4,7 @@ import { Container, InfoItem } from "./styles";
 
 interface Props {
     name: string;
-    valor: string;
+    valor: number;
     descricao: string;
 }
 

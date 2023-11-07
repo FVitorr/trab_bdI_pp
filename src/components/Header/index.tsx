@@ -29,11 +29,11 @@ const Header: React.FC = () => {
       <Link to="/clientes">
         <button>CLIENTES</button>
       </Link>
-      <Link to="/pagamentos">
-        <button>PAGAMENTOS</button>
-      </Link>
       <Link to="/pedidos">
         <button>PEDIDOS</button>
+      </Link>
+      <Link to="/pagamentos">
+        <button>PAGAMENTOS</button>
       </Link>
     </Container>
   );
