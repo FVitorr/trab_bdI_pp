@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Container, Input, Button, Text,Profile } from "./styles";
+import { Container, Input, Button, Text,Profile,Banner,TextOverlay } from "./styles";
 import { Link } from 'react-router-dom';
+import mulher_edge from './../../assets/mulher_edge.svg';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -24,8 +25,15 @@ const Login: React.FC = () => {
 
   return (
     <Container>
-      <Profile/>
+      <Banner>
+        <TextOverlay>
+        <h1>Ponto Perfeito</h1>
+        <p>Transformamos tecidos em obras-primas e sonhos em realidade.</p>
+        </TextOverlay>
+        <img src={mulher_edge}/>
+      </Banner>
       <form onSubmit={handleLogin}>
+        <h2>Entrar</h2>
         <Input
           placeholder="Email"
           type="email"
@@ -41,7 +49,7 @@ const Login: React.FC = () => {
           required
         />
         <Button type="submit">Entrar</Button>
-        <Button>Registrar</Button>
+        <p>Novo por aqui?<a> Criar uma conta</a> </p>
       </form>
       
     </Container>
