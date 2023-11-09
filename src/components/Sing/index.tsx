@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { Container, Input, Button, Text, Profile, Banner, TextOverlay } from "./../Login/styles";
 import { Link } from 'react-router-dom';
 import mulher_edge from './../../assets/mulher_edge.svg';
@@ -6,6 +7,7 @@ import { pass } from "./style";
 
 
 const Registrar: React.FC = () => {
+  // const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,8 +19,7 @@ const Registrar: React.FC = () => {
     setTimeout(() => {
       if (email === "user@example.com" && password === "password123") {
         setIsLoggedIn(true);
-        alert("Login bem-sucedido!");
-        <Link to="/" />
+        <link href="\" /> // Redireciona o usuário para a página inicial
       } else {
         alert("Credenciais inválidas. Tente novamente.");
       }
@@ -29,7 +30,7 @@ const Registrar: React.FC = () => {
   return (
     <Container>
       <form onSubmit={handleLogin} style={{ borderRadius: '1rem 0rem 0rem 1rem' }}>
-        <h2 style={{left: '-25%;'}}>Registrar</h2>
+        <h2>Registrar</h2>
         <Input
           placeholder="Email"
           type="email"

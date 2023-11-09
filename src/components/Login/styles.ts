@@ -49,13 +49,19 @@ export const Input = styled.input`
   padding: 12px;
   margin: 10px;
   font-size: 16px;
-  border: 0.5px solid black;
-  border-radius: 5px;
-  background-color: whitesmoke;
+  border:none;
+  border-bottom: 2px solid #000;
+  background-color:transparent;
   width: 300px;
   font-size:14px;
   color: black;
-  text-decoration:underline;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+
+
+  &:focus {
+    outline: none;
+    border-color: rgba(159, 146, 228, 1); /* Cor da borda ao focar no input */
+  }
 `;
 
 export const Button = styled.button`

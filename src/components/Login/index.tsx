@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Container, Input, Button, Text,Profile,Banner,TextOverlay } from "./styles";
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import mulher_edge from './../../assets/mulher_edge.svg';
+
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -15,8 +17,6 @@ const Login: React.FC = () => {
     setTimeout(() => {
       if (email === "user@example.com" && password === "password123") {
         setIsLoggedIn(true);
-        alert("Login bem-sucedido!");
-        <Link to="/" />
       } else {
         alert("Credenciais inválidas. Tente novamente.");
       }
