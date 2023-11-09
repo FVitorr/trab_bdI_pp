@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Container, Formulario, ListItens } from "./styles";
-import Item from "../Item";
-import Header from "../Header copy";
+import Item from "../Item-Item";
+import Header from "../../Header copy";
 
 export interface IItem {
   nome: string;

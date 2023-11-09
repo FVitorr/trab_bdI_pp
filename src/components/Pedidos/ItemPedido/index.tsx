@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Container, InfoPedido, EditButton, DeleteButton } from "./styles";
+import EditarPedido from "../EditaPedido";
 
 interface Props {
   name: string;
@@ -13,6 +14,7 @@ interface Props {
 const Pedido: React.FC<Props> = ({ name, valor, itens, status }) => {
 
   const itensFormatados = itens.join(", ");
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <Container>
@@ -22,10 +24,18 @@ const Pedido: React.FC<Props> = ({ name, valor, itens, status }) => {
         <p>R$ {valor}</p>
         <p>{status}</p>
         <div>
-          <EditButton />
+          <button>
+          <EditButton id={name}  onClick={() => setOpenModal(true)}
+          />
+          </button>
+          <button>
           <DeleteButton />
+          </button>
         </div>
       </InfoPedido>
+      <EditarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
+        Conteúdo do modal
+      </EditarPedido>
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Container, Formulario } from "./styles";
-import Header from "../Header copy";
+import Header from "../../Header copy";
 import PedidosAbertos from "../PedidosAbertos/index";
 
 const Pedidos: React.FC = () => {

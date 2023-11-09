@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import { Container, Formulario, ListPagamentos } from "./styles";
-import Pagamento from "../Pagamento";
-import Header from "../Header copy";
+import Pagamento from "../ItemPagamento";
+import Header from "../../Header copy";
 
 export interface IPagamento {
   pedido: string;

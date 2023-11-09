@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Pedido from "../Pedido";
+import Pedido from "../ItemPedido";
 
 import { Container } from "./styles";
 

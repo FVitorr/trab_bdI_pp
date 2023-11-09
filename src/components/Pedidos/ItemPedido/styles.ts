@@ -24,28 +24,28 @@ text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
   font-size: 17px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   >p{
     border-radius: 1rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #2B2B2B;
-    justify-content: space-between;
     background-color: #C0C0C0;
-    margin: 0;
     font-size: 18px;
     font-weight: bold;
     width:100%;
     height: 5rem;
-    padding-left: 2rem;
   }
   >div{
-    gap: 17px;
     border-radius: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
     color: #2B2B2B;
     background-color: #C0C0C0;
@@ -54,6 +54,15 @@ text-align: center;
     font-weight: bold;
     width:100%;
     height: 5rem;
+    >button{
+      width: auto;
+      background-color: #C0C0C0;
+      border:none;
+      padding:0;
+      &:focus{
+        outline: none;
+      }
+    }
   }
 `
 

@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Login from "./components/Login";
-import Pedidos from "./components/Pedidos/index";
+import Pedidos from "./components/Pedidos/PaginaPedidos/index";
 import Main from "./components/Main/index";
-import Clientes from "./components/Clientes";
-import Itens from "./components/Itens";
-import Pagamentos from "./components/Pagamentos";
+import Clientes from "./components/Clientes/PaginaClientes";
+import Itens from "./components/Itens/PaginaItens";
+import Pagamentos from "./components/Pagamentos/PaginaPagamentos";
 import Registrar from "./components/Sing";
 
 

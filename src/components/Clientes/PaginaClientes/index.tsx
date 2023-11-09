@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Container, Formulario, ListClientes } from "./styles";
-import Cliente from "../Cliente";
-import Header from "../Header copy";
+import Cliente from "../ItemCliente";
+import Header from "../../Header copy";
 
 export interface ICliente {
   nome: string;
