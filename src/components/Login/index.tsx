@@ -49,7 +49,7 @@ const Login: React.FC = () => {
           required
         />
         <Button type="submit">Entrar</Button>
-        <p>Novo por aqui?<a> Criar uma conta</a> </p>
+        <p>Novo por aqui?<a href="http://localhost:5173/register"> Criar uma conta</a> </p>
       </form>
       
     </Container>

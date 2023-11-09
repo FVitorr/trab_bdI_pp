@@ -9,6 +9,7 @@ export const Container = styled.div`
   height: 100vh;
   background: radial-gradient(circle, rgba(159, 146, 228, 1) 0%, rgba(28, 40, 126, 1) 100%);  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease;
   >form{
     display: flex;
     flex-direction: column;
@@ -23,10 +24,13 @@ export const Container = styled.div`
     z-index: 1;
 
     >h2{
-      position:relative;
-      top: -10%;
       font-size:32px;
-      left: -30%;
+      display: flex;
+      width: 300px;
+      padding-bottom:1rem;
+      position:relative;
+      top: -3%;
+      
     }
 
     >p{
@@ -42,14 +46,16 @@ export const Profile = styled(PersonCircle)`
 `
 
 export const Input = styled.input`
-  padding: 10px;
+  padding: 12px;
   margin: 10px;
   font-size: 16px;
   border: 0.5px solid black;
   border-radius: 5px;
   background-color: whitesmoke;
   width: 300px;
+  font-size:14px;
   color: black;
+  text-decoration:underline;
 `;
 
 export const Button = styled.button`
