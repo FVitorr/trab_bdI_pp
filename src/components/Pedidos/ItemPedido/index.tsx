@@ -15,7 +15,8 @@ const Pedido: React.FC<Props> = ({ name, valor, itens, status }) => {
 
   const itensFormatados = itens.join(", ");
   const [openModal, setOpenModal] = useState(false)
-
+  
+  
   return (
     <Container>
       <InfoPedido>
@@ -33,7 +34,8 @@ const Pedido: React.FC<Props> = ({ name, valor, itens, status }) => {
           </button>
         </div>
       </InfoPedido>
-      <EditarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
+      <EditarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}
+      name = {name} valor = {valor} status = {status} itens = {itens}>
         Conteúdo do modal
       </EditarPedido>
     </Container>

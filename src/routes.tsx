@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Login from "./components/Login";
+import Login from "./components/Login-Register/Login";
 import Pedidos from "./components/Pedidos/PaginaPedidos/index";
 import Main from "./components/Main/index";
 import Clientes from "./components/Clientes/PaginaClientes";
 import Itens from "./components/Itens/PaginaItens";
 import Pagamentos from "./components/Pagamentos/PaginaPagamentos";
-import Registrar from "./components/Sing";
+import Registrar from "./components/Login-Register/Register";
 
 
 const Appl: React.FC = () => {

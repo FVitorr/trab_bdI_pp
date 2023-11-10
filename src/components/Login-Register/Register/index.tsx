@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
-import { Container, Input, Button, Text, Profile, Banner, TextOverlay } from "./../Login/styles";
-import { Link } from 'react-router-dom';
-import mulher_edge from './../../assets/mulher_edge.svg';
-import { pass } from "./style";
+import { Container, Input, Button, Banner, TextOverlay } from "./../Login/styles";
+import mulher_edge from './../../../assets/mulher_edge.svg';
+
 
 
 const Registrar: React.FC = () => {

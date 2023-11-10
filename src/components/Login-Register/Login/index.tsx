@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Container, Input, Button, Text,Profile,Banner,TextOverlay } from "./styles";
+import { Container, Input, Button,Banner,TextOverlay } from "./styles";
 import { Link } from 'react-router-dom';
-import mulher_edge from './../../assets/mulher_edge.svg';
+import mulher_edge from './../../../assets/mulher_edge.svg';
 
 
 const Login: React.FC = () => {
