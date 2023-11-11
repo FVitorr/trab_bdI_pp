@@ -1,7 +1,7 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  max-width: 1280px;
   /* background-color: #C0C0C0; */
   border-radius: 1rem;
   gap: 0.5rem;

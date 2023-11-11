@@ -1,35 +1,48 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
-  max-height: 100vh;
-  max-width: 100vw;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+  min-width: 1280px;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-  >img{
-    max-width: 720px;
-    max-height: 720px;
-  }
+  flex-direction: column;
 `;
 
-export const TextOverlay = styled.div`
->h1{
-  text-align: center;
-}
-width: 100%;
-letter-spacing: .2rem;
-  font-family: 'Noto Sans', sans-serif;  
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  text-align: left;
-  color: #FFFFFF;
-  z-index: 1;
-`;
+export const FirstSection = styled.div`
+margin-top: 1rem;
+margin: 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 356px;
+  justify-content: space-around;
+  width: 100%;
+    >p{
+      max-width: 538px;
+      font-size: 40px;
+      color: #d9d9d9;
+    }
+    >img{
+      height: 243px;
+      width: 268px;
+    }
+  `;
+
+export const SecondSection = styled.div`
+margin-top: 1rem;
+margin: 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 356px;
+  justify-content: space-around;
+  background: #d9d9d9;
+  width: 99vw;
+    >p{
+      text-align: end;
+      max-width: 565px;
+      font-size: 40px;
+      color: #327AD9;
+    }
+    >img{
+      height: 258px;
+      width: 288px;
+    }
+  `;

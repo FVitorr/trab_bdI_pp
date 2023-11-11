@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from "react";
-import mulher_edge from './../../assets/mulher_edge.svg';
+import top_rigth from './../../assets/top-rigth.png';
+import bottom_left from './../../assets/bottom-left.png';
 
-import { Container, TextOverlay } from "./styles";
+import { Container, FirstSection, SecondSection } from "./styles";
 
 const InfoPP: React.FC = () => {
   return (
     <Container>
-      <TextOverlay>
-      <h1>Ponto Perfeito</h1>
-      <p>Transformamos tecidos em obras-primas e sonhos em realidade. Seja para um evento especial ou para o dia a dia, confie-nos seu desejo de estilo e deixe-nos costurar a perfeição para você.</p>
-      </TextOverlay>
-      <img src={mulher_edge}/>
-    </ Container>
+      <FirstSection>
+        <p>
+          Transformamos <b>tecidos</b> em <b>obra-prima</b> e <b>sonhos</b> em <b>realidade</b>.
+        </p>
+        <img src={top_rigth} />
+      </FirstSection>
+      <SecondSection>
+        <img src={bottom_left} />
+        <p>
+          Seja para um <b>evento especial</b> ou<br />
+          <b> dia a dia</b>, confie-nos<br />
+          seu desejo de estilo e <b>deixe-nos<br />
+            costurar a perfeição para você</b>.
+        </p>
+      </SecondSection>
+    </ Container >
   );
 };
 

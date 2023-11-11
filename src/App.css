@@ -1,18 +1,15 @@
-#root, html, body {
-  min-height: 100vh;
-  min-width: 100%;
+html,
+body {
+  height: 100vh;
   width: 100%;
-  /* background: rgb(57,47,110);
-  background: radial-gradient(circle, rgba(57,47,110,1) 0%, rgba(46,56,129,1) 100%); */
-  /* background: rgb(138,121,231);
-  background: linear-gradient(49deg, rgba(138,121,231,1) 0%, rgba(61,73,162,1) 100%); */
-  background: rgb(159,146,228);
-  background: radial-gradient(circle, rgba(159,146,228,1) 0%, rgba(28,40,126,1) 100%);
-  font-family: 'Noto Sans', sans-serif;
+  background: #327AD9;
+  font-family: 'Lato', sans-serif;
+  margin: 0 auto;
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
+  margin: 0 auto;
   box-sizing: border-box;
 }

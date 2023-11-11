@@ -1,33 +1,29 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
-  /* font-family: 'Noto Sans', sans-serif; */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ;
-
-  font-weight: bold;
   z-index: 2;
   position: sticky;
   top: 0;
-
-  background-color: #392E6D;
-  width: 100%;
+  min-width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   text-align: center;
-  padding: 8px 0 12px 13px;
+  background: #327AD9;
+  min-height: 70px;
 
-  > a > button,
-  > button {
-    padding: 8px;
-    border-radius: 5%;
+  > div, button {
+    display: flex;
+    flex-wrap: wrap;
     border: none;
-    width: 13rem;
-    background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 14px;
     outline: 0;
     cursor: pointer;
-    color: #BEA187;
+    background: #327AD9;
+    &:hover {
+      color: #F1C40F; /* Altere para a cor desejada ao passar o mouse */
+    }
   }
 `;

@@ -1,40 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
+import logo from './../../assets/Group 17.png';
 
 import { Container } from "./styles";
 
 const Header: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <Container scrolled={scrolled}>
-      <Link to="/">
-        <button>INICIO</button>
-      </Link>
-      <Link to="/itens">
-        <button>ITENS</button>
-      </Link>
-      <Link to="/clientes">
-        <button>CLIENTES</button>
-      </Link>
-      <Link to="/pedidos">
-        <button>PEDIDOS</button>
-      </Link>
-      <Link to="/pagamentos">
-        <button>PAGAMENTOS</button>
-      </Link>
+    <Container>
+      <img src={logo} />
+      <div>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+        <Link to="/itens">
+          <button>Itens</button>
+        </Link>
+        <Link to="/clientes">
+          <button>Clientes</button>
+        </Link>
+        <Link to="/pedidos">
+          <button>Pedidos</button>
+        </Link>
+        <Link to="/pagamentos">
+          <button>Pagamentos</button>
+        </Link>
+      </div>
     </Container>
   );
 };

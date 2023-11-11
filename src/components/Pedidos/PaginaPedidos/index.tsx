@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { Container, Formulario, SelectArea, SelectBtn, Down, Checkboxes, OverSelect } from "./styles";
+import { Container, Title, InputButton, FieldNames, SelectArea, SelectBtn, Down, Checkboxes, OverSelect } from "./styles";
 import Header from "../../Header copy";
 import PedidosAbertos from "../PedidosAbertos/index";
+import EditarPedido from "../CadastraPedido";
 
 interface Option {
   value: string;
@@ -47,51 +48,33 @@ const Pedidos: React.FC = () => {
     paddingLeft: "1rem"
   }
 
-  return (
-    <>
-      <Header />
-      <Container>
-        <div>
-          <Formulario>
-            <p>Pedidos</p>
-            <input placeholder="Cliente" type="text" />
-            <SelectArea>
-              <div className="selectBox" onClick={() => setExpanded(!expanded)} style={{ position: "relative" }}>
-                <SelectBtn>Itens 
-                <OverSelect>
-                  {selectedItems.map((itemId) => {
-                    const selectedItem = Options.find((option) => option.id === itemId);
-                    return selectedItem ? (
-                       <p key={selectedItem.id}> {selectedItem.value} </p>
-                    ) : null;
-                  })}
-                </OverSelect>
-                <Down />
-                </SelectBtn>
-              </div>
-              {expanded && (
-                <Checkboxes>
-                  {Options.map((Options, index) => (
-                    <label key={index} htmlFor={Options.id} style={labelCSS}>
-                      <input type="checkbox" id={Options.id} checked={selectedItems.includes(Options.id)}
-                  onChange={() => handleCheckboxChange(Options.id)}/> <p>{Options.id}</p> <p>{Options.value}</p> <p>{Options.price}</p>
-                    </label>
-                  ))}
-                </Checkboxes>
-              )}
-            </SelectArea>
+  const [openModal, setOpenModal] = useState(false)
 
-            <input placeholder="Data de entrega" type="text" />
-            <input placeholder="Observações" type="text" />
-            <div>
-              <button>Enviar</button>
-              <button>Limpar</button>
-            </div>
-          </Formulario>
-          <PedidosAbertos />
-        </div>
-      </Container>
-    </>
+  return (
+    <Container>
+      <Header />
+      <Title>
+        <p>Pedidos</p>
+        <p>Estes são seus pedidos cadastrados.</p>
+      </Title>
+      <InputButton>
+        <input placeholder="Pesquisar" />
+        <button onClick={() => setOpenModal(true)}><b>Adicionar pedido</b></button>
+      </InputButton>
+      <FieldNames>
+        <p>Código</p>
+        <p>Nome</p>
+        <p>Itens</p>
+        <p>Valor</p>
+        <p>Status</p>
+        <p>Ações</p>
+      </FieldNames>
+      <PedidosAbertos />
+      <EditarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}
+        name={"NAME"} valor={14} status={"status"} itens={['ok', 'ok2']}>
+        Conteúdo do modal
+      </EditarPedido>
+    </Container>
   );
 };
 

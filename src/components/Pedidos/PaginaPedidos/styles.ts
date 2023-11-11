@@ -2,22 +2,71 @@ import styled, { css } from "styled-components";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 
 export const Container = styled.div`
-  background-color: #dcdcdc;
-
-  height: 100%;
+  background-color: #f2f2f2;
   min-height: 100vh;
-
-  font-family: "Merriweather", serif;
-  /* min-width: 100%; */
-  width: 100%;
+  min-width: 99vw;
+  margin: 1280px auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  gap: 1rem;
   > div {
     width: 1280px;
-    /* margin: 0 auto; */
-    margin: 20px auto 0px auto;
   }
 `;
+
+export const InputButton = styled.div`
+display: flex;
+justify-content: space-between;
+max-width: 100%;
+  >input{
+    background: #d9d9d9;
+    width: 744px;
+    height: 45px;
+    border-radius: 4px;
+    border: none;
+  }
+  >button{
+    background: #327AD9;
+    width: 228px;
+    height: 45px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+`
+
+export const FieldNames = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  margin: 0 auto;
+  >p{
+    text-align: left;
+    color: black;
+    font-size: 14px;
+  }
+`
+
+export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  p:nth-child(1){
+    color: black;
+    font-size: 20px;
+  }
+  p:nth-child(2){
+    color: gray;
+    font-size: 14px;
+  }
+`
 
 export const Formulario = styled.div`
   padding: 0 0 3rem 0;

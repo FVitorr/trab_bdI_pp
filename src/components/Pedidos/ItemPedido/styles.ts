@@ -3,43 +3,29 @@ import styled, { css } from "styled-components";
 import { Edit } from "@styled-icons/boxicons-solid/Edit"
 import { DeleteOutline } from "@styled-icons/typicons/DeleteOutline"
 
-
 export const Container = styled.div`
-  margin: 0px 0px 0px 0px;
   width: 100%;
-  max-width: 100%;
-  height: 80px;
-  max-height: 90%;
-
+  max-width: 1280px;
+  height: 45px;
+  background: #d9d9d9;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: column;
 `;
 
 export const InfoPedido = styled.div`
-text-align: center;
   width: 100%;
-  gap: 0.5rem;
-  max-height: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
-  font-size: 17px;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  justify-content: flex-start;
   align-items: center;
-  text-align: center;
+  text-align: left;
+  margin: 0 auto;
   >p{
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #2B2B2B;
-    background-color: #C0C0C0;
-    font-size: 18px;
-    font-weight: bold;
-    width:100%;
-    height: 5rem;
+    text-align: left;
+    color: gray;
+    font-size: 14px;
   }
   >div{
     border-radius: 1rem;
@@ -47,8 +33,6 @@ text-align: center;
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    color: #2B2B2B;
-    background-color: #C0C0C0;
     margin: 0;
     font-size: 18px;
     font-weight: bold;
@@ -56,7 +40,7 @@ text-align: center;
     height: 5rem;
     >button{
       width: auto;
-      background-color: #C0C0C0;
+      background: #d9d9d9;
       border:none;
       padding:0;
       &:focus{
@@ -68,10 +52,10 @@ text-align: center;
 
 export const DeleteButton = styled(DeleteOutline)`
   color: red;
-  width: 40px;
+  width: 32px;
 `;
 
 export const EditButton = styled(Edit)`
   color: blue;
-  width: 32px;
+  width: 26px;
 `;
