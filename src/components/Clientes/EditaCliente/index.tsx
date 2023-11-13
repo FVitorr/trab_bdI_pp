@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Container, ModalStyle, Formulario, Buttons } from "./style";
 
 interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
-
-  cliente: string;
-  valor: number;
-  status: string;
-  itens: string[];
+  id: string;
+  name: string;
+  endereco: string;
+  telefone: string;
+  email: string;
 }
 
-const AdicionarPedido: React.FC<Props> = ({
+const EditarCliente: React.FC<Props> = ({
   isOpen,
   setModalOpen,
   name,
-  valor,
-  status,
-  itens,
+  endereco,
+  telefone,
+  email
 }) => {
   if (isOpen) {
     const [value_, setValor] = useState("");
@@ -29,37 +29,41 @@ const AdicionarPedido: React.FC<Props> = ({
       <Container>
         <ModalStyle>
           <Formulario>
-            <p>Cadastro de pedido</p>
+            <p>Editar cliente</p>
             <div>
-              <p>Cliente</p>
+              <p>Nome</p>
               <input
-                placeholder="Selecione um cliente"
+                placeholder="Informe o nome do cliente"
                 type="text"
                 name="name"
+                defaultValue={name}
               />
             </div>
             <div>
-              <p>Item</p>
+              <p>Endereço</p>
               <input
-                placeholder="Selecione os itens"
+                placeholder="Informe o endereco do cliente"
                 type="text"
-                name="itens"
+                name="endereco"
+                defaultValue={endereco}
               />
             </div>
             <div>
-              <p>Data de entrega</p>
+              <p>Telefone</p>
               <input
-                placeholder="Infore a data de entrega"
+                placeholder="Informe o telefone do cliente"
                 type="text"
-                name="dataEntrega"
+                name="telefone"
+                defaultValue={telefone}
               />
             </div>
             <div>
-              <p>Observações</p>
+              <p>Email</p>
               <input
-                placeholder="Observações"
+                placeholder="Informe o email do cliente"
                 type="text"
                 name="status"
+                defaultValue={email}
               />
             </div>
           </Formulario>
@@ -74,4 +78,4 @@ const AdicionarPedido: React.FC<Props> = ({
   return null;
 };
 
-export default AdicionarPedido;
+export default EditarCliente;

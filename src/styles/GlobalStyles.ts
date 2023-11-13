@@ -17,7 +17,6 @@ export default createGlobalStyle`
   *, button, input{
     border: 0;
     background: none;
-    font-family: 'Merriweather', serif;
   }
     
 `;

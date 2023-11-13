@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Container, InfoPedido, EditButton, DeleteButton } from "./styles";
 import EditarPedido from "../EditaPedido";

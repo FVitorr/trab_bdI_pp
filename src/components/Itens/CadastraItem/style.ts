@@ -15,8 +15,8 @@ export const ModalStyle = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 733px;
-  min-height: 418px;
+  width: 733px;
+  height: 360px;
   transform: translate(-50%, -50%);
   background-color: #cccccc;
   border-radius: 5px;

@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
@@ -7,66 +6,70 @@ export const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(0,0,0, 0.7);
+  background-color: rgb(0, 0, 0, 0.7);
   z-index: 1000;
+  min-width: 100vw;
 `;
 
 export const ModalStyle = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  padding: 150px;
-  background-color: #C0C0C0;
-  border-radius: 10px;
+  min-width: 733px;
+  min-height: 418px;
+  transform: translate(-50%, -50%);
+  background-color: #cccccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
   color: black;
+  gap: 3.5rem;
 `;
 
+export const Buttons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  > button {
+    background: #327ad9;
+    width: 228px;
+    height: 45px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+`;
 
 export const Formulario = styled.div`
-  padding: 0 0 3rem 0;
+  margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  >p{
-    font-size: 2rem;
-    color: black;
+  align-items: flex-start;
+  justify-content: flex-start;
+  > p {
+    font-size: 20px;
   }
 
-  >input{
-    max-width: 100%;
-    min-width: 100%;
-    padding: 1rem 2rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(0,0,0,0.1);
-    background-color:#FFFFFF;
-    color: #3F4373;
-  }
-
-  >div{
+  > div {
     display: flex;
-    gap: 1rem;
-  >button {
-    margin-top:1rem;
-    padding: 8px;
-    border-radius: 5%;
-
-    width: 13rem;
-    font-size: 1.5rem;
-
-    outline: 0;
-    cursor: pointer;
-
-    background-color: #6C63FF;
-    color: #FFFFFF;
-
-    &:hover{
-      background: #594fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    > p {
+      font-size: 14px;
+      color: black;
+      float: left;
     }
-}
-
-}
+    > input {
+      padding: 0 0 0 1rem;
+      min-height: 34px;
+      min-width: 656px;
+      border-radius: 4px;
+      border: none;
+      background-color: #ebebeb;
+      color: black;
+    }
+  }
 `;

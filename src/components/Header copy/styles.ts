@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   z-index: 2;
-  position: sticky;
+  position: absolute;
   top: 0;
-  min-width: 100%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: space-around;
   text-align: center;
   background: #327AD9;
-  min-height: 70px;
+  min-height: 7.5vh;
 
   > div, button {
     display: flex;

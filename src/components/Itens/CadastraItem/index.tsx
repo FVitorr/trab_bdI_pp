@@ -6,19 +6,17 @@ interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
 
-  cliente: string;
+  nome: string;
   valor: number;
-  status: string;
-  itens: string[];
+  descricao: string;
 }
 
-const AdicionarPedido: React.FC<Props> = ({
+const AdicionarItem: React.FC<Props> = ({
   isOpen,
   setModalOpen,
-  name,
+  nome,
   valor,
-  status,
-  itens,
+  descricao
 }) => {
   if (isOpen) {
     const [value_, setValor] = useState("");
@@ -29,37 +27,29 @@ const AdicionarPedido: React.FC<Props> = ({
       <Container>
         <ModalStyle>
           <Formulario>
-            <p>Cadastro de pedido</p>
+            <p>Cadastro de item</p>
             <div>
-              <p>Cliente</p>
+              <p>Nome</p>
               <input
-                placeholder="Selecione um cliente"
+                placeholder="Informe o nome do item"
                 type="text"
                 name="name"
               />
             </div>
             <div>
-              <p>Item</p>
+              <p>Valor</p>
               <input
-                placeholder="Selecione os itens"
+                placeholder="Informe o valor do item"
                 type="text"
                 name="itens"
               />
             </div>
             <div>
-              <p>Data de entrega</p>
+              <p>Descrição</p>
               <input
-                placeholder="Infore a data de entrega"
+                placeholder="Infore a descrição do item"
                 type="text"
                 name="dataEntrega"
-              />
-            </div>
-            <div>
-              <p>Observações</p>
-              <input
-                placeholder="Observações"
-                type="text"
-                name="status"
               />
             </div>
           </Formulario>
@@ -74,4 +64,4 @@ const AdicionarPedido: React.FC<Props> = ({
   return null;
 };
 
-export default AdicionarPedido;
+export default AdicionarItem;
