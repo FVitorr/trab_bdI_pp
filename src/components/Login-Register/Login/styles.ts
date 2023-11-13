@@ -1,82 +1,82 @@
 import styled, {css} from "styled-components";
-import {PersonCircle} from "@styled-icons/bootstrap/PersonCircle";
+import { EmailOutline } from "styled-icons/evaicons-outline";
+import { Lock } from "styled-icons/boxicons-regular";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
+  background: #327AD9;
+  width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle, rgba(159, 146, 228, 1) 0%, rgba(28, 40, 126, 1) 100%);  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.5s ease;
-  >form{
+`;
+
+export const ModalLogin = styled.div`
+  width: 918px;
+  height: 444px;
+  background-color: #272B2F;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  >div{
     display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    background: white;
-    padding:1rem;
-    color: black;
-    height:90vh;
-    border-radius: 0rem 1rem 1rem 0rem;
-    border: 1px solid rgba(0,0,0,0.2);
-    z-index: 1;
-
-    >h2{
-      font-size:32px;
-      display: flex;
-      width: 300px;
-      padding-bottom:1rem;
-      position:relative;
-      top: -3%;
-      
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    >h1{
+    font-size: 24px;
     }
-
     >p{
-      margin-top:1rem;
-      font-size:14px;
+      max-width: 316px;
+      font-size: 14px;
+      color: #728284;
+    }
+    >form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
     }
   }
-`;
-export const Profile = styled(PersonCircle)`
-  color: white;
-  width: 110px;
-  
+  >img{
+    width: 461px;
+    height: 408px;
+  }
+
 `
 
 export const Input = styled.input`
-  padding: 12px;
-  margin: 10px;
-  font-size: 16px;
+  font-size: 14px;
+  color: #728284;
   border:none;
-  border-bottom: 2px solid #000;
-  background-color:transparent;
-  width: 300px;
+  background-color: #34383C;
+  width: 363px;
+  height: 45px;
   font-size:14px;
-  color: black;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
-
-
+  padding-left: 0.5rem;
   &:focus {
     outline: none;
-    border-color: rgba(159, 146, 228, 1); /* Cor da borda ao focar no input */
   }
 `;
 
 export const Button = styled.button`
   margin-top: 2rem;
   font-size: 18px;
-  background-color: #4caf50;
-  color: white;
+  background-color: #327AD9;
+  color: #34383C;
   border: none; 
-  border-radius: 2rem;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width:300px;
+  width:395px;
+  height: 37px;
+  font-weight: bold;
 
   &:hover {
-    background-color: #45a049;
+    background-color: #2D75D3;
   }
 `;
 
@@ -120,4 +120,21 @@ export const TextOverlay = styled.div`
   text-align: center;
   color: #FFFFFF;
   z-index: 1;
+`;
+
+export const PasswordIcon = styled(Lock)`
+  padding-left: 10px;
+  color: #327AD9;
+  width: 32px;
+`;
+
+export const EmailIcon = styled(EmailOutline)`
+  padding-left: 10px;
+  color: #327AD9;
+  width: 32px;
+`;
+
+export const IconWrapper = styled.div`
+  background-color: #34383C;
+  display: flex;
 `;
