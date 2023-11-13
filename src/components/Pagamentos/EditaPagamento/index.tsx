@@ -29,7 +29,7 @@ const EditarPedido: React.FC<Props> = ({
       <Container>
         <ModalStyle>
           <Formulario>
-            <p>Editar pedido</p>
+            <p>Editar pagamento</p>
             <div>
               <p>Cliente</p>
               <input

@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 
 import { Container, InfoPagamento, Check, View } from "./styles";
 
-interface Props {
-  pedido: string;
-  valor: number;
+interface IPagamentos {
+  id: string;
+  idPedido: string;
+  price: string;
   status: string;
 }
 
-const Pagamento: React.FC<Props> = ({ pedido, valor, status }) => {
+const Pagamento: React.FC<IPagamentos> = ({ id, idPedido, price, status }) => {
   return (
     <Container>
       <InfoPagamento>
-        <p>{pedido}</p>
-        <p>R$ {valor}</p>
+        <p>{id}</p>
+        <p> {idPedido}</p>
+        <p>R$ {price}</p>
         <p>{status}</p>
         <div>
           <View />
