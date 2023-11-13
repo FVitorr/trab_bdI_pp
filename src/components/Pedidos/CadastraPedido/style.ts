@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 
 export const Container = styled.div`
   position: fixed;
@@ -53,7 +54,6 @@ export const Formulario = styled.div`
     width: 100%;
     font-size: 20px;
   }
-
   > div {
     display: flex;
     flex-direction: column;
@@ -66,7 +66,7 @@ export const Formulario = styled.div`
       color: black;
       float: left;
     }
-    > input {
+    > input,select {
       margin-bottom: 0.5rem;
       padding: 0 0 0 1rem;
       min-height: 34px;
@@ -77,4 +77,58 @@ export const Formulario = styled.div`
       color: black;
     }
   }
+`;
+
+export const SelectArea = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  > div {
+    width: 100%;
+  }
+`;
+export const SelectOpition = styled.div`
+  border-radius: 4px;
+  background-color: #ebebeb;
+  color: #3f4373;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding-left: 1rem;
+  min-height: 34px;
+`;
+
+export const Checkboxes = styled.i`
+  position: absolute;
+  top: 58px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #cccccc;
+  background-color: #cccccc;
+  max-height: 150px;
+  overflow-y: auto; /* Permite rolar o conteúdo dentro do contêiner */
+  z-index:1;
+  > label {
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const Down = styled(ChevronDown)`
+  width: 32px;
+  padding: 0;
+`;
+
+export const OverSelect = styled.div`
+  display: flex;
+  width: 70%;
+  flex-direction: row;
+  font-size: 12px;
+  overflow: hidden;
+  gap: 3px;
 `;

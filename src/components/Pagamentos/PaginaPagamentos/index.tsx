@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import { Container, Title, InputButton, FieldNames } from "./styles";
-import Header from "../../Header copy";
+import Header from "../../Header";
 import Pedido from "../../Pedidos/ItemPedido/index";
 // import PedidosAbertos from "../PedidosAbertos/index";
 import AdicionarPedido from "../../Pedidos/CadastraPedido/index";
@@ -39,15 +39,6 @@ const Pedidos: React.FC = () => {
     }
   };
 
-  const labelCSS = {
-    border: "1px solid black",
-    marginTop: "0.5rem",
-    color: "black",
-    display: "grid",
-    gridTemplateColumns: "0.5fr 0.5fr 1.5fr 2fr",
-    justifyItems: "start", // Alinha os itens à esquerda
-    paddingLeft: "1rem"
-  }
 
   const itens = ['Bainha', "Bolso"]
   const itens1 = ['Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso"]

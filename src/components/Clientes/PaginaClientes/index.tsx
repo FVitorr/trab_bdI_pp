@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Container, FieldNames, InputButton, Title } from "./styles";
 import Cliente from "../ItemCliente";
-import Header from "../../Header copy";
+import Header from "../../Header";
 
 import AdicionarCliente from "../CadastraCliente";
 

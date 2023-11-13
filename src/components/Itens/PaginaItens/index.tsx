@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container, Title, InputButton, FieldNames } from "./styles";
 import AdicionarItem from "../CadastraItem";
 import Item from "../Item-Item";
-import Header from "../../Header copy";
+import Header from "../../Header";
 
 export interface IItem {
   id: string;

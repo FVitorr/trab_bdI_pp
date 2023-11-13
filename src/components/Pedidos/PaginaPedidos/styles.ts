@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
-import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+
 
 export const Container = styled.div`
+  position:relative;
+  top: 10rem;
   padding: 15vh 0px 70px 0px;
   background-color: #f2f2f2;
   min-height: 100vh;
@@ -13,16 +15,6 @@ export const Container = styled.div`
   align-items: center;
   gap: 1rem;
 `;
-
-export const OverSelect = styled.div`
-  display: flex;
-  max-width: 90%;
-  font-size: 12px;
-  gap: 3px;
-  overflow: hidden;
-  background-color: #f2f2f2; /* Adicione a mesma cor de fundo do Container */
-`;
-
 
 export const InputButton = styled.div`
   padding-top: 1rem;
@@ -107,6 +99,9 @@ export const Formulario = styled.div`
     background-color: #ffffff;
     color: #3f4373;
   }
+  >select{
+    background-color:red;
+  }
 
   > div {
     display: flex;
@@ -130,50 +125,4 @@ export const Formulario = styled.div`
       }
     }
   }
-`;
-
-export const SelectArea = styled.div`
-  position: relative;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  > div {
-    width: 100%;
-  }
-`;
-
-export const SelectBtn = styled.div`
-  min-width: 50%;
-  padding: 0.5rem 2rem 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  color: #3f4373;
-  font-size: 13px;
-
-  display: grid;
-  grid-template-columns: 0.4fr 3fr 0.1fr;
-  align-items: center;
-`;
-
-export const Down = styled(ChevronDown)`
-  color: black;
-  width: 32px;
-`;
-
-export const Checkboxes = styled.i`
-  position: relative;
-  top: -12px;
-  bottom: 0px;
-  display: flex;
-  flex-direction: column;
-  background-color:white;
-  width:98%;
-  max-height: 310px;
-  overflow-y: auto; /* Permite rolar o conteúdo dentro do contêiner */
-  &::-webkit-scrollbar {
-  display: none;
-}
 `;

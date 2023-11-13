@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import imagem from "../../../assets/seguranca-do-computador-com-cadeado-de-login-e-senha.png";
 import { Container, Button, EmailIcon, IconWrapper, Input, ModalLogin, PasswordIcon, pass } from "./styles";
-./styles
+
 const Registrar: React.FC = () => {
   // const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();

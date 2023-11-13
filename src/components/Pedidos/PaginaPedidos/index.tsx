@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import { Container, Title, InputButton, FieldNames } from "./styles";
-import Header from "../../Header copy";
+import Header from "../../Header";
 import Pedido from "../ItemPedido";
 // import PedidosAbertos from "../PedidosAbertos/index";
 import AdicionarPedido from "../CadastraPedido";
@@ -13,42 +13,6 @@ interface Option {
 }
 
 const Pedidos: React.FC = () => {
-  const Options: Option[] = [
-    { value: "opcao1", id: "1", price: "12.2" },
-    { value: "opcao2", id: "2", price: "12.2" },
-    { value: "opcao3", id: "3", price: "12.2" },
-    { value: "opcao4", id: "4", price: "12.2" },
-    { value: "opcao1", id: "5", price: "12.2" },
-    { value: "opcao2", id: "6", price: "12.2" },
-    { value: "opcao3", id: "7", price: "12.2" },
-    { value: "opcao4", id: "8", price: "12.2" },
-    { value: "opcao1", id: "9", price: "12.2" },
-    { value: "opcao2", id: "10", price: "12.2" },
-    { value: "opcao3", id: "11", price: "12.2" },
-    { value: "opcao4", id: "12", price: "12.2" },
-  ];
-
-  const [expanded, setExpanded] = useState(false);
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
-
-  const handleCheckboxChange = (id: string) => {
-    if (selectedItems.includes(id)) {
-      setSelectedItems(selectedItems.filter((item) => item !== id));
-    } else {
-      setSelectedItems([...selectedItems, id]);
-    }
-  };
-
-  const labelCSS = {
-    border: "1px solid black",
-    marginTop: "0.5rem",
-    color: "black",
-    display: "grid",
-    gridTemplateColumns: "0.5fr 0.5fr 1.5fr 2fr",
-    justifyItems: "start", // Alinha os itens à esquerda
-    paddingLeft: "1rem"
-  }
-
   const itens = ['Bainha', "Bolso"]
   const itens1 = ['Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso"]
   const [openModal, setOpenModal] = useState(false)
