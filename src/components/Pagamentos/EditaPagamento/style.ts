@@ -32,6 +32,7 @@ export const Buttons = styled.div`
   justify-content: flex-start;
   width: 100%;
   > button {
+    color: white;
     background: #327ad9;
     width: 228px;
     height: 45px;

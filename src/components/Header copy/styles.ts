@@ -15,6 +15,7 @@ export const Container = styled.div`
   min-height: 7.5vh;
 
   > div, button {
+    color: white;
     display: flex;
     flex-wrap: wrap;
     border: none;
@@ -22,6 +23,7 @@ export const Container = styled.div`
     outline: 0;
     cursor: pointer;
     background: #327AD9;
+    color: white;
     &:hover {
       color: #F1C40F; /* Altere para a cor desejada ao passar o mouse */
     }

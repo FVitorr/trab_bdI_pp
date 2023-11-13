@@ -61,13 +61,12 @@ const Login: React.FC = () => {
               onChange={(e: any) => setPassword(e.target.value)}
             />
             </IconWrapper>
-
-          </form>
-          <Button type="submit">Entrar</Button>
+            <Button type="submit">Entrar</Button>
           <p>
             Novo por aqui?
             <a href="http://localhost:5173/register"> Cadastre-se</a>{" "}
           </p>
+          </form>
         </div>
       </ModalLogin>
     </Container>

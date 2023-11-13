@@ -17,9 +17,11 @@ export const ModalLogin = styled.div`
   background-color: #272B2F;
   border-radius: 12px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   >div{
+    background-color: #272B2F;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,14 +41,22 @@ export const ModalLogin = styled.div`
       justify-content: center;
       align-items: center;
       gap: 1rem;
+      >p{
+        color: #728284;
+        font-size: 14px;
+      }
     }
   }
   >img{
     width: 461px;
     height: 408px;
   }
-
-`
+  @media (max-width: 900px) {
+    > img {
+      display: none; 
+    }
+  }
+`;
 
 export const Input = styled.input`
   font-size: 14px;

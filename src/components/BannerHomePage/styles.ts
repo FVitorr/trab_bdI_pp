@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color:#327AD9;
 `;
 
 export const FirstSection = styled.div`
@@ -17,33 +18,49 @@ export const FirstSection = styled.div`
   height: 50%;
   justify-content: space-around;
   background: #327AD9;
-  width: 100vw;
+  max-width: 1280px;
   > p {
-    max-width: 50%; /* Use uma porcentagem do contêiner pai */
-    font-size: 3.5vw; /* Use vw para tornar o tamanho de fonte responsivo */
+    max-height: 100%;
+    max-width: 50%;
+    font-size: 2.4vw;
     color: #d9d9d9;
   }
 
   > img {
     min-height: 80px;
     min-width: 100px;
-    height: 15vw; /* Use vw para tornar o tamanho da imagem responsivo */
-    width: 16vw; /* Use vw para tornar o tamanho da imagem responsivo */
+    height: 15vw; 
+    width: 16vw;
   }
+  @media (max-width: 850px) {
+    > p {
+      font-size: 20px; 
+    }
+  }
+`;
+
+export const BgSecondSection = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+height: 50%;
+background: #d9d9d9;
+width: 100vw;
 `;
 
 export const SecondSection = styled.div`
   display: flex;
   align-items: center;
-  height: 50%;
+  height: 100%;
   justify-content: space-around;
   background: #d9d9d9;
-  width: 100vw;
+  width: 1280px;
 
   > p {
     text-align: end;
-    max-width: 50%; /* Use uma porcentagem do contêiner pai */
-    font-size: 3.5vw; /* Use vw para tornar o tamanho de fonte responsivo */
+    max-width: 50%;
+    font-size: 2.4vw;
+    max-height: 100%;
     color: #327AD9;
   }
 
@@ -52,5 +69,10 @@ export const SecondSection = styled.div`
     min-width: 100px;
     height: 15vw; /* Use vw para tornar o tamanho da imagem responsivo */
     width: 16vw; /* Use vw para tornar o tamanho da imagem responsivo */
+  }
+  @media (max-width: 850px) {
+    > p {
+      font-size: 20px; 
+    }
   }
 `;

@@ -43,6 +43,7 @@ export const InputButton = styled.div`
   }
 
   > button {
+    color: white;
     background: #327AD9;
     width: 228px;
     height: 45px;
@@ -57,7 +58,7 @@ export const FieldNames = styled.div`
   max-width: 1280px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
   justify-content: flex-start;
   align-items: flex;
   text-align: left;
