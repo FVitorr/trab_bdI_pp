@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Container, Input, Button, Banner, TextOverlay } from "./../Login/styles";
-import mulher_edge from './../../../assets/mulher_edge.svg';
-
-
-
+import imagem from "../../../assets/seguranca-do-computador-com-cadeado-de-login-e-senha.png";
+import { Container, Button, EmailIcon, IconWrapper, Input, ModalLogin, PasswordIcon, pass } from "./styles";
+./styles
 const Registrar: React.FC = () => {
   // const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -23,45 +22,58 @@ const Registrar: React.FC = () => {
       }
     }, 1000); // Simulando uma requisição assíncrona com um atraso de 1 segundo
   };
-  
+
 
   return (
     <Container>
-      <form onSubmit={handleLogin} style={{ borderRadius: '1rem 0rem 0rem 1rem' }}>
-        <h2>Registrar</h2>
-        <Input
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={(e: any) => setEmail(e.target.value)}
-          required
-        />
-        <Input
-            placeholder="Nova Senha"
-            type="password"
-            value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
-            required
-          />
-          <Input
-            placeholder="Repetir Senha"
-            type="password"
-            value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
-            required
-          />
+      <ModalLogin>
+        <div>
+          <h1>Venha fazer parte da Ponto Perfeito!</h1>
+          <p>
+            Onde cada agulhada conta uma história e cada linha tecida é um passo
+            em direção à perfeição.
+          </p>
+          <form onSubmit={handleLogin} style={{ borderRadius: '1rem 0rem 0rem 1rem' }}>
+            <IconWrapper>
+              <EmailIcon />
+              <Input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e: any) => setEmail(e.target.value)}
+                required
+              />
+            </IconWrapper>
 
 
-        <Button type="submit">Registrar</Button>
-        <p>Já possui conta?<a href="http://localhost:5173/auth"> Entrar</a> </p>
-      </form>
-      <Banner style={{ borderRadius: '0rem 1rem 1rem 0rem' }}>
-        <TextOverlay>
-          <h1>Ponto Perfeito</h1>
-          <p> Transformamos tecidos em obras-primas e sonhos em realidade. <br/>Crie uma conta para começar a explorar nossa plataforma.</p>
-        </TextOverlay>
-        <img src={mulher_edge} />
-      </Banner>
+            <IconWrapper>
+              <PasswordIcon />
+              <Input
+                placeholder="Nova Senha"
+                type="password"
+                value={password}
+                onChange={(e: any) => setPassword(e.target.value)}
+                required
+              />
+            </IconWrapper>
+
+            <IconWrapper>
+              <PasswordIcon />
+              <Input
+                placeholder="Repetir Senha"
+                type="password"
+                value={passwordConfirm}
+                onChange={(e: any) => setPasswordConfirm(e.target.value)}
+                required
+              />
+            </IconWrapper>
+
+            <Button type="submit">Registrar</Button>
+            <p>Já possui conta?<a href="http://localhost:5173/auth"> Entrar</a> </p>
+          </form>
+        </div>
+        <img src={imagem} />
+      </ModalLogin>
     </Container>
   );
 };

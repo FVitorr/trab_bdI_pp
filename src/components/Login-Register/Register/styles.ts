@@ -4,19 +4,11 @@ import { Lock } from "styled-icons/boxicons-regular";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #327AD9;
-  gap: 1rem;
   width: 100vw;
   height: 100vh;
-  @media (max-width: 900px) {
-    flex-direction: row;
-    > img {
-      display: none; 
-    }
-  }
 `;
 
 export const ModalLogin = styled.div`
@@ -28,6 +20,7 @@ export const ModalLogin = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-left: 1rem;
   >div{
     background-color: #272B2F;
     display: flex;
@@ -155,4 +148,10 @@ export const EmailIcon = styled(EmailOutline)`
 export const IconWrapper = styled.div`
   background-color: #34383C;
   display: flex;
+`;
+
+
+// Defina o componente Banner com a borda estilizada
+export const pass = styled.div`
+  border: 2px solid black;
 `;

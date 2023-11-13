@@ -63,7 +63,9 @@ export const FieldNames = styled.div`
   align-items: flex;
   text-align: left;
   margin: 0 auto;
+  padding-left: 1rem;
   >p{
+    width: 100%;
     text-align: left;
     color: black;
     font-size: 14px;

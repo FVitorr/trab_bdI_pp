@@ -57,13 +57,15 @@ export const FieldNames = styled.div`
   max-width: 1280px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr 0.5fr;
   justify-content: flex-start;
-  align-items: flex;
+  align-items: flex-start;
   text-align: left;
   margin: 0 auto;
+  padding-left: 1rem;
   >p{
     text-align: left;
+    width: 100%;
     color: black;
     font-size: 14px;
   }

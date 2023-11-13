@@ -20,26 +20,29 @@ export const InfoItem = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
   justify-content: flex-start;
   align-items: center;
-  text-align: left;
   margin: 0 auto;
+  padding-left: 1rem;
+
   >p{
+    width: 100%;
     text-align: left;
     color: gray;
     font-size: 14px;
   }
   >div{
-    border-radius: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     text-align: center;
     margin: 0;
     font-size: 18px;
     font-weight: bold;
     width:100%;
-    height: 5rem;
+    height: 2rem;
+    text-align: left;
     >button{
-      width: auto;
+      text-align: left;
+      width: 100%;
       background: #d9d9d9;
       border:none;
       padding:0;

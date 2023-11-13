@@ -9,6 +9,7 @@ interface Props {
   name: string;
   valor: number;
   status: string;
+  observacoes: string;
   itens: string[];
 }
 
@@ -19,6 +20,7 @@ const EditarPedido: React.FC<Props> = ({
   valor,
   status,
   itens,
+  observacoes
 }) => {
   if (isOpen) {
     const [value_, setValor] = useState("");
@@ -33,7 +35,7 @@ const EditarPedido: React.FC<Props> = ({
             <div>
               <p>Cliente</p>
               <input
-                placeholder="Cliente"
+                placeholder="Selecione um cliente"
                 type="text"
                 name="name"
                 defaultValue={name}
@@ -42,7 +44,7 @@ const EditarPedido: React.FC<Props> = ({
             <div>
               <p>Item</p>
               <input
-                placeholder="Itens"
+                placeholder="Selecione os itens"
                 type="text"
                 name="itens"
                 defaultValue={itens.join(", ")} // Exibe os itens como uma string separada por vírgula
@@ -51,7 +53,7 @@ const EditarPedido: React.FC<Props> = ({
             <div>
               <p>Data de entrega</p>
               <input
-                placeholder="Data de entrega"
+                placeholder="Informe a data de entrega"
                 type="text"
                 name="dataEntrega"
                 defaultValue={''} // Adicione o estado correspondente para data de entrega
@@ -61,6 +63,15 @@ const EditarPedido: React.FC<Props> = ({
               <p>Observações</p>
               <input
                 placeholder="Observações"
+                type="text"
+                name="observacoes"
+                defaultValue={observacoes}
+              />
+            </div>
+            <div>
+              <p>Status</p>
+              <input
+                placeholder="Status"
                 type="text"
                 name="status"
                 defaultValue={status}
