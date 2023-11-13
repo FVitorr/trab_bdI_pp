@@ -9,10 +9,10 @@ interface Props {
   name: string;
   valor: number;
   status: string;
-  itens: string[];
+  itens: string;
 }
 
-const EditarPedido: React.FC<Props> = ({
+const EditarPagamento: React.FC<Props> = ({
   isOpen,
   setModalOpen,
   name,
@@ -45,7 +45,7 @@ const EditarPedido: React.FC<Props> = ({
                 placeholder="Itens"
                 type="text"
                 name="itens"
-                defaultValue={itens.join(", ")} // Exibe os itens como uma string separada por vírgula
+                defaultValue={itens} // Exibe os itens como uma string separada por vírgula
               />
             </div>
             <div>
@@ -78,4 +78,4 @@ const EditarPedido: React.FC<Props> = ({
   return null;
 };
 
-export default EditarPedido;
+export default EditarPagamento;

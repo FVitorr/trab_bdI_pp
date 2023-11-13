@@ -32,6 +32,7 @@ const Pedidos: React.FC = () => {
         </FieldNames>
         
         <Pagamento id = {"1"} idPedido = {"1"} price = {"1"} status = {"1"}/>
+        
 
       </Container>
     </>
