@@ -69,7 +69,6 @@ export const FieldNames = styled.div`
     font-size: 14px;
   }
 `
-
 export const Title = styled.div`
   display: flex;
   flex-direction: column;

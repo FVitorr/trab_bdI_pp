@@ -28,7 +28,6 @@ export const ModalStyle = styled.div`
   gap: 1rem;
 `;
 
-
 export const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +68,7 @@ export const Formulario = styled.div`
     font-weight: bold;
     width: 100%;
     font-size: 20px;
-    color:#FFFFFF;
+    color: #ffffff;
   }
 
   > div {
@@ -81,7 +80,7 @@ export const Formulario = styled.div`
       padding-left: 0.5rem;
       width: 100%;
       font-size: 14px;
-      color:#AAAAAA;
+      color: #aaaaaa;
       float: left;
     }
     > input {
@@ -92,7 +91,7 @@ export const Formulario = styled.div`
       border-radius: 4px;
       border: none;
       background-color: #313131;
-      color: #AAAAAA;
+      color: #aaaaaa;
     }
   }
 `;
@@ -108,10 +107,9 @@ export const SelectArea = styled.div`
 export const SelectOpition = styled.div`
   border-radius: 4px;
   background-color: #313131;
-  color: #AAAAAA;
-  font-size: 13px;
+  color: #aaaaaa;
+  font-size: 14px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: start;
   padding-left: 1rem;
@@ -128,14 +126,19 @@ export const Checkboxes = styled.i`
   background-color: #313131;
   max-height: 150px;
   overflow-y: auto;
-  color: #AAAAAA;
-  z-index:1;
+  color: #aaaaaa;
+  z-index: 1;
+
   > label {
     width: 100%;
-    >p{
-      color: #AAAAAA;
+    &:hover {
+      background-color: #444444;
+    }
+    > p {
+      color: #aaaaaa;
     }
   }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -148,10 +151,10 @@ export const Down = styled(ChevronDown)`
 
 export const OverSelect = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 70%;
-  flex-direction: row;
   font-size: 12px;
   overflow: hidden;
-  gap: 3px;
-  color: #AAAAAA;
+  color: #aaaaaa;
 `;
