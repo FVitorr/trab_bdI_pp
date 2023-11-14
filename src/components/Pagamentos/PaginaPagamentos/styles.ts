@@ -72,12 +72,15 @@ export const FieldNames = styled.div`
 export const Title = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1280px;
   p:nth-child(1){
+    width: 100%;
     color: black;
     font-size: 20px;
   }
   p:nth-child(2){
+    width: 100%;
     color: gray;
     font-size: 14px;
   }

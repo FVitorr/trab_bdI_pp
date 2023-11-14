@@ -142,7 +142,7 @@ const AdicionarPedido: React.FC<Props> = ({
                   {Options.map((Options, index) => (
                     <label key={index} htmlFor={Options.id} style={labelCSS}>
                       <input type="checkbox" id={Options.id} checked={selectedItems.includes(Options.id)}
-                        onChange={() => handleCheckboxChange(Options.id)} /> <p>{Options.id}</p> <p>{Options.value}</p> <p>{Options.price}</p>
+                        onChange={() => handleCheckboxChange(Options.id)} /> <p>{Options.id}</p> <p>{Options.value}</p> <p>R$ {Options.price}</p>
                     </label>
                   ))}
                 </Checkboxes>

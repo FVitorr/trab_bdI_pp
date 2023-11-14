@@ -31,7 +31,6 @@ const Login: React.FC = () => {
 
   return (
     <Container>
-      <img src={logo} width="130px" height="120px" />
       <ModalLogin>
         <img src={imagem} />
         <div>

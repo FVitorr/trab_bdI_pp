@@ -16,10 +16,11 @@ export const ModalStyle = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 733px;
-  min-height: 420px;
+  min-width: 700px;
+  height: auto;
+  /* padding-bottom: 1.5rem; */
   transform: translate(-50%, -50%);
-  background-color: #cccccc;
+  background-color: #262626;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -27,19 +28,33 @@ export const ModalStyle = styled.div`
   gap: 1rem;
 `;
 
+
 export const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   width: 100%;
-  > button {
+  background-color: #313131;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  > button:nth-child(1) {
     color: white;
-    background: #327ad9;
-    width: 228px;
-    height: 45px;
+    background: #838383;
+    width: 110px;
+    height: 35px;
     border: none;
     border-radius: 4px;
     font-size: 14px;
+    margin-left: 27rem;
+  }
+  > button:nth-child(2) {
+    color: white;
+    background: #327ad9;
+    width: 110px;
+    height: 35px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 1.5rem;
   }
 `;
 
@@ -51,9 +66,12 @@ export const Formulario = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   > p {
+    font-weight: bold;
     width: 100%;
     font-size: 20px;
+    color:#FFFFFF;
   }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -63,18 +81,18 @@ export const Formulario = styled.div`
       padding-left: 0.5rem;
       width: 100%;
       font-size: 14px;
-      color: black;
+      color:#AAAAAA;
       float: left;
     }
-    > input,select {
+    > input {
       margin-bottom: 0.5rem;
       padding: 0 0 0 1rem;
       min-height: 34px;
       min-width: 656px;
       border-radius: 4px;
       border: none;
-      background-color: #ebebeb;
-      color: black;
+      background-color: #313131;
+      color: #AAAAAA;
     }
   }
 `;
@@ -89,8 +107,8 @@ export const SelectArea = styled.div`
 `;
 export const SelectOpition = styled.div`
   border-radius: 4px;
-  background-color: #ebebeb;
-  color: #3f4373;
+  background-color: #313131;
+  color: #AAAAAA;
   font-size: 13px;
   display: flex;
   flex-direction: row;
@@ -106,13 +124,17 @@ export const Checkboxes = styled.i`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid #cccccc;
-  background-color: #cccccc;
+  /* border: 1px solid #cccccc; */
+  background-color: #313131;
   max-height: 150px;
-  overflow-y: auto; /* Permite rolar o conteúdo dentro do contêiner */
+  overflow-y: auto;
+  color: #AAAAAA;
   z-index:1;
   > label {
     width: 100%;
+    >p{
+      color: #AAAAAA;
+    }
   }
   &::-webkit-scrollbar {
     display: none;
@@ -131,4 +153,5 @@ export const OverSelect = styled.div`
   font-size: 12px;
   overflow: hidden;
   gap: 3px;
+  color: #AAAAAA;
 `;

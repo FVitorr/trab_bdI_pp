@@ -27,7 +27,7 @@ const AdicionarItem: React.FC<Props> = ({
       <Container>
         <ModalStyle>
           <Formulario>
-            <p>Cadastro de item</p>
+            <p>Cadastro de Item</p>
             <div>
               <p>Nome</p>
               <input

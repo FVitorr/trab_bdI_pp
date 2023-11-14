@@ -45,6 +45,9 @@ export const ModalLogin = styled.div`
       >p{
         color: #728284;
         font-size: 14px;
+        > a {
+          color: #327ad9;
+        }
       }
     }
   }
@@ -74,10 +77,13 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+display: flex;
+align-items: center;
+justify-content: center;
   margin-top: 2rem;
-  font-size: 18px;
+  font-size: 14px;
   background-color: #327AD9;
-  color: #34383C;
+  color: white;
   border: none; 
   border-radius: 4px;
   cursor: pointer;
@@ -85,7 +91,6 @@ export const Button = styled.button`
   width:395px;
   height: 37px;
   font-weight: bold;
-
   &:hover {
     background-color: #2D75D3;
   }
