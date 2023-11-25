@@ -1,28 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import { Container, ModalStyle, Formulario, Buttons } from "./style";
 
 interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
-
-  nome: string;
-  valor: number;
-  descricao: string;
 }
 
-const AdicionarItem: React.FC<Props> = ({
-  isOpen,
-  setModalOpen,
-  nome,
-  valor,
-  descricao
-}) => {
+const AdicionarItem: React.FC<Props> = ({ isOpen, setModalOpen }) => {
+  const [nome, setNome] = useState("");
+  const [valor, setValor] = useState("");
+  const [descricao, setDescricao] = useState("");
+
+  const handleInputChange = (e:any) => {
+    const { name, value } = e.target;
+    if (name === "name") setNome(value);
+    else if (name === "valor") setValor(value);
+    else if (name === "descricao") setDescricao(value);
+  };
+
+  const handleSalvarClick = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/itens", {
+        nome,
+        valor: parseFloat(valor),
+        descricao,
+      });
+
+      console.log("Item criado com sucesso:", response.data);
+
+      setModalOpen();
+    } catch (error) {
+      console.error("Erro ao criar item:", error);
+    }
+  };
+
   if (isOpen) {
-    const [value_, setValor] = useState("");
-    const handleInputChange = (e) => {
-      setValor(e.target.value);
-    };
     return (
       <Container>
         <ModalStyle>
@@ -34,6 +48,7 @@ const AdicionarItem: React.FC<Props> = ({
                 placeholder="Informe o nome do item"
                 type="text"
                 name="name"
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -41,7 +56,8 @@ const AdicionarItem: React.FC<Props> = ({
               <input
                 placeholder="Informe o valor do item"
                 type="text"
-                name="itens"
+                name="valor"
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -49,18 +65,20 @@ const AdicionarItem: React.FC<Props> = ({
               <input
                 placeholder="Infore a descrição do item"
                 type="text"
-                name="dataEntrega"
+                name="descricao"
+                onChange={handleInputChange}
               />
             </div>
           </Formulario>
           <Buttons>
             <button onClick={setModalOpen}>Cancelar</button>
-            <button>Salvar</button>
+            <button onClick={handleSalvarClick}>Salvar</button>
           </Buttons>
         </ModalStyle>
       </Container>
     );
   }
+
   return null;
 };
 

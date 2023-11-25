@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 import { Container, ModalStyle, Formulario, Buttons } from "./style";
 
 interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
-  id: string;
-  name: string;
-  endereco: string;
+  id: number; // Adicionado o campo id
+  nome: string;
+  rua: string;
+  bairro: string;
+  numero_endereco: string;
+  cidade: string;
+  estado: string;
   telefone: string;
   email: string;
 }
@@ -15,16 +20,61 @@ interface Props {
 const EditarCliente: React.FC<Props> = ({
   isOpen,
   setModalOpen,
-  name,
-  endereco,
+  id,
+  nome,
+  rua,
+  bairro,
+  numero_endereco,
+  cidade,
+  estado,
   telefone,
   email
 }) => {
+
+  const [nomeCliente, setNome] = useState(nome);
+  const [ruaCliente, setRua] = useState(rua);
+  const [bairroCliente, setBairro] = useState(bairro);
+  const [numeroCliente, setNumeroEndereco] = useState(numero_endereco);
+  const [cidadeCliente, setCidade] = useState(cidade);
+  const [estadoCliente, setEstado] = useState(estado);
+  const [telefoneCliente, setTelefone] = useState(telefone);
+  const [emailCliente, setEmail] = useState(email);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    if (name === "nome") setNome(value);
+    else if (name === "email") setEmail(value);
+    else if (name === "telefone") setTelefone(value);
+    else if (name === "rua") setRua(value);
+    else if (name === "bairro") setBairro(value);
+    else if (name === "numero_endereco") setNumeroEndereco(value);
+    else if (name === "cidade") setCidade(value);
+    else if (name === "estado") setEstado(value);
+  };
+
+  const handleSave = async () => {
+    try {
+      const url = `http://localhost:8080/clientes/${id}`;
+      console.log(url)
+      const response = await axios.put(url, {
+        nome: nomeCliente,
+        rua: ruaCliente,
+        bairro: bairroCliente,
+        numero_endereco: numeroCliente,
+        cidade: cidadeCliente,
+        estado: estadoCliente,
+        telefone: telefoneCliente,
+        email: emailCliente
+      });
+
+      setModalOpen();
+    } catch (error) {
+      console.error("Erro ao editar item:", error);
+    }
+  };
+
+
   if (isOpen) {
-    const [value_, setValor] = useState("");
-    const handleInputChange = (e) => {
-      setValor(e.target.value);
-    };
     return (
       <Container>
         <ModalStyle>
@@ -35,17 +85,59 @@ const EditarCliente: React.FC<Props> = ({
               <input
                 placeholder="Informe o nome do cliente"
                 type="text"
-                name="name"
-                defaultValue={name}
+                name="nome"
+                value={nomeCliente}
+                onChange={handleInputChange}
               />
             </div>
             <div>
-              <p>Endereço</p>
+              <p>Rua</p>
               <input
                 placeholder="Informe o endereco do cliente"
                 type="text"
-                name="endereco"
-                defaultValue={endereco}
+                name="rua"
+                value={ruaCliente}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <p>Bairro</p>
+              <input
+                placeholder="Informe o bairro do cliente"
+                type="text"
+                name="bairro"
+                value={bairroCliente}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <p>Numero</p>
+              <input
+                placeholder="Informe o número do cliente"
+                type="text"
+                name="numero_endereco"
+                value={numeroCliente}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <p>Cidade</p>
+              <input
+                placeholder="Informe a cidade do cliente"
+                type="text"
+                name="cidade"
+                value={cidadeCliente}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <p>Estado</p>
+              <input
+                placeholder="Informe o estado do cliente"
+                type="text"
+                name="estado"
+                value={estadoCliente}
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -54,7 +146,8 @@ const EditarCliente: React.FC<Props> = ({
                 placeholder="Informe o telefone do cliente"
                 type="text"
                 name="telefone"
-                defaultValue={telefone}
+                value={telefoneCliente}
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -62,14 +155,15 @@ const EditarCliente: React.FC<Props> = ({
               <input
                 placeholder="Informe o email do cliente"
                 type="text"
-                name="status"
-                defaultValue={email}
+                name="email"
+                value={emailCliente}
+                onChange={handleInputChange}
               />
             </div>
           </Formulario>
           <Buttons>
             <button onClick={setModalOpen}>Cancelar</button>
-            <button>Salvar</button>
+            <button onClick={handleSave}>Salvar</button>
           </Buttons>
         </ModalStyle>
       </Container>
