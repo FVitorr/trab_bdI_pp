@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+import { Search } from "@styled-icons/octicons/Search"
 
 export const Container = styled.div`
   background-color: #f2f2f2;
@@ -31,14 +32,26 @@ export const InputButton = styled.div`
   justify-content: space-between;
   max-width: 1280px;
   width: 100%;
+
+  >div {
+    display: flex;
+    flex: 1;
+    background: #d9d9d9;
+
   > input {
     flex: 1;
+
     background: #d9d9d9;
     height: 45px;
     border-radius: 4px;
     border: none;
     padding-left: 1rem;
     color: black;
+  }
+  > button{
+    background: #d9d9d9;
+    padding: 0 1rem;
+  }
   }
 
   > button {
@@ -51,6 +64,12 @@ export const InputButton = styled.div`
     font-size: 14px;
     margin-left: 3rem;
   }
+`;
+
+export const Search_ = styled(Search)`
+  color: white;
+  width: 32px;
+  background: #d9d9d9;
 `;
 
 export const FieldNames = styled.div`

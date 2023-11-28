@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Container, FieldNames, InputButton, Title } from "./styles";
+import { Container, FieldNames, InputButton, Title, Search_ } from "./styles";
 import Cliente from "../ItemCliente";
 import Header from "../../Header";
 
@@ -23,6 +23,7 @@ const Clientes: React.FC = () => {
 
   const [openModal, setOpenModal] = useState(false)
   const [clientes, setClientes] = useState<ICliente[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     // Carregar itens do backend ao montar o componente
@@ -36,6 +37,25 @@ const Clientes: React.FC = () => {
     } catch (error) {
       console.error("Erro ao carregar itens:", error);
     }
+  };
+
+  const buscarClientes = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/clientes/busca/${searchTerm}`);
+      setClientes(response.data);
+    } catch (error) {
+      console.error("Erro ao carregar clientes:", error);
+    }
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim() === "") {
+      // Se searchTerm estiver vazio, carregar todos os itens
+      carregarClientes();
+    } else {
+      // Senão, chamar a função de pesquisa com a string fornecida
+      buscarClientes();
+    };
   };
 
   const adicionarCliente = async (novoCliente: ICliente) => {
@@ -57,9 +77,19 @@ const Clientes: React.FC = () => {
           <p>Estes são seus clientes cadastrados.</p>
         </Title>
         <InputButton>
-          <input placeholder="Pesquisar" />
-          <button onClick={() => setOpenModal(true)}><b>Adicionar cliente</b></button>
-        </InputButton>
+        <div>
+          <input
+            placeholder="Pesquisar"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button onClick={handleSearch}>
+            <Search_ />
+          </button>
+        </div>
+          <button onClick={() => setOpenModal(true)}><b>Adicionar cliente</b>
+          </button>
+      </InputButton>
         <FieldNames>
           <p>Código</p>
           <p>Nome</p>
