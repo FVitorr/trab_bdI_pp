@@ -41,10 +41,9 @@ const Itens: React.FC = () => {
     }
   };
 
-  return (
-    <>
+  return (   
+  <Container>
       <Header />
-      <Container>
         <Title>
           <p>Itens</p>
           <p>Estes são seus itens cadastrados.</p>
@@ -77,7 +76,6 @@ const Itens: React.FC = () => {
           Conteúdo do modal
         </AdicionarItem>
       </Container>
-    </>
   );
 };
 

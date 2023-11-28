@@ -8,10 +8,10 @@ export const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
-  padding: 10rem 0 2rem 0;
+  margin-top:8.5rem ;
+  /* background-color: red; */
 `;
 
 export const OverSelect = styled.div`
