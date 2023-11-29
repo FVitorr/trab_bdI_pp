@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import { Container, Title, InputButton, FieldNames } from "./styles";
 import Header from "../../Header";
@@ -6,7 +7,7 @@ import Pedido from "../ItemPedido";
 // import PedidosAbertos from "../PedidosAbertos/index";
 import AdicionarPedido from "../CadastraPedido";
 
-interface Option {
+interface IPedido {
   value: string;
   id: string;
   price: string;
@@ -15,7 +16,23 @@ interface Option {
 const Pedidos: React.FC = () => {
   const itens = ['Bainha', "Bolso"]
   const itens1 = ['Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso"]
+  const [pedido, setPedido] = useState<IPedido[]>([]);
   const [openModal, setOpenModal] = useState(false)
+
+  useEffect(() => {
+    // Carregar itens do backend ao montar o componente
+    carregarItens();
+  }, []);
+
+  const carregarItens = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/pedidos");
+      console.log(response.data);
+      setPedido(response.data);
+    } catch (error) {
+      console.error("Erro ao carregar itens:", error);
+    }
+  };
 
   return (
     <>
