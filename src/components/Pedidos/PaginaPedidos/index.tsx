@@ -6,11 +6,18 @@ import Header from "../../Header";
 import Pedido from "../ItemPedido";
 // import PedidosAbertos from "../PedidosAbertos/index";
 import AdicionarPedido from "../CadastraPedido";
+import { ICliente } from "../../Clientes/PaginaClientes";
+import { IItem } from "../../Itens/PaginaItens";
 
 interface IPedido {
-  value: string;
-  id: string;
-  price: string;
+  id: number;
+  cliente: ICliente;
+  data_pedido: string | null;
+  estimativa_entrega: string;
+  data_entrega: string;
+  status_pedido: string;
+  status_pagamento: string;
+  itens: IItem[];
 }
 
 const Pedidos: React.FC = () => {
@@ -54,17 +61,15 @@ const Pedidos: React.FC = () => {
           <p>Status</p>
           <p>Ações</p>
         </FieldNames>
-        <Pedido name={"Breno Alves"} valor={150.00} itens={itens} status={"Pronto"} />
-        <Pedido name={"Augusto Leal"} valor={150.00} itens={itens} status={"Finalizado"} />
-        <Pedido name={"Vitor Augusto"} valor={150.00} itens={itens} status={"Pendente"} />
-        <Pedido name={"Fulano Um"} valor={150.00} itens={itens1} status={"Pendente"} />
-        <Pedido name={"Clicano Dois"} valor={150.00} itens={itens} status={"Pronto"} />
-        <Pedido name={"Deltrano Três"} valor={150.00} itens={itens} status={"Finalizado"} />
-        <Pedido name={"Beltrano De Tal"} valor={150.00} itens={itens} status={"Pronto"} />
-        <Pedido name={"Joaozinho"} valor={150.00} itens={itens} status={"Finalizado"} />
-        <Pedido name={"Deltrano Três"} valor={150.00} itens={itens} status={"Finalizado"} />
-        <Pedido name={"Beltrano De Tal"} valor={150.00} itens={itens} status={"Pronto"} />
-        <Pedido name={"Joaozinho"} valor={150.00} itens={itens} status={"Finalizado"} />
+        {pedido.map((pedido_) => (
+          <Pedido
+          id = {pedido_.id}
+          nomeCliente={pedido_.cliente.nome}
+          itens={pedido_.itens}
+          valorTotal={pedido_.itens.reduce((total, item) => total + item.valor, 0)}
+          statusPedido={pedido_.status_pedido}
+        />
+        ))}
         <AdicionarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}
           name={"NAME"} valor={14} status={"status"} itens={['ok', 'ok2']}>
           Conteúdo do modal
