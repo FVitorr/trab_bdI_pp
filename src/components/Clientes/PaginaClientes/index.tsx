@@ -55,7 +55,7 @@ const Clientes: React.FC = () => {
     } else {
       // Senão, chamar a função de pesquisa com a string fornecida
       buscarClientes();
-    };
+    }
   };
 
   const adicionarCliente = async (novoCliente: ICliente) => {

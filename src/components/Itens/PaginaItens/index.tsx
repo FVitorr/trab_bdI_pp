@@ -48,7 +48,7 @@ const Itens: React.FC = () => {
     } else {
       // Senão, chamar a função de pesquisa com a string fornecida
       buscarItens();
-    };
+    }
   };
 
   const adicionarItem = async (novoItem: IItem) => {

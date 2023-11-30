@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 
 import {
   Container,
@@ -22,16 +23,17 @@ interface Props {
   itens: string[];
 }
 
-interface IItens {
-  value: string;
-  id: string;
-  price: string;
+interface IItem {
+  id: number;
+  nome: string;
+  valor: number;
+  descricao: string;
 }
 
 interface ICliente {
   id: number;
   nome: string;
-  cpf: string;
+  email: string;
 }
 
 const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
@@ -45,27 +47,31 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
       padding: "0.5rem",
     };
 
-    const Options: IItens[] = [
-      { value: "opcao1", id: "1", price: "12.2" },
-      { value: "opcao2", id: "2", price: "12.2" },
-      { value: "opcao3", id: "3", price: "12.2" },
-      { value: "opcao4", id: "4", price: "12.2" },
-      { value: "opcao1", id: "5", price: "12.2" },
-      { value: "opcao2", id: "6", price: "12.2" },
-      { value: "opcao3", id: "7", price: "12.2" },
-      { value: "opcao4", id: "8", price: "12.2" },
-      { value: "opcao1", id: "9", price: "12.2" },
-      { value: "opcao2", id: "10", price: "12.2" },
-      { value: "opcao3", id: "11", price: "12.2" },
-      { value: "opcao4", id: "12", price: "12.2" },
-    ];
+    useEffect(() => {
+      // Carregar itens do backend ao montar o componente
+      carregarClientes();
+      carregarItens();
+    }, []);
 
-    const ClientesArray: ICliente[] = [
-      { id: 1, nome: "Breno Alves", cpf: "10030020032" },
-      { id: 2, nome: "Joao", cpf: "10030020032" },
-      { id: 3, nome: "Siclano", cpf: "10030020032" },
-      { id: 4, nome: "Fulano", cpf: "10030020032" },
-    ];
+    const [ItemsOption, setItems] = useState<IItem[]>([]);
+    const carregarItens = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/itens");
+        setItems(response.data);
+      } catch (error) {
+        console.error("Erro ao carregar itens:", error);
+      }
+    };
+
+    const [ClientesOption, setClientes] = useState<ICliente[]>([]);
+    const carregarClientes = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/clientes");
+        setClientes(response.data);
+      } catch (error) {
+        console.error("Erro ao carregar itens:", error);
+      }
+    };
 
     const [expanded, setExpanded] = useState(false);
     const [expanded_c, setExpanded_c] = useState(false);
@@ -105,18 +111,11 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
                     {clienteSelecionado ? (
                       <p key={clienteSelecionado}>
                         {
-                          ClientesArray.find(
+                          ClientesOption.find(
                             (cliente) =>
                               cliente.id === Number(clienteSelecionado)
                           )?.nome
                         }{" "}
-                        -{" "}
-                        {
-                          ClientesArray.find(
-                            (cliente) =>
-                              cliente.id === Number(clienteSelecionado)
-                          )?.cpf
-                        }
                       </p>
                     ) : null}
                   </OverSelect>
@@ -125,7 +124,7 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
               </div>
               {expanded_c && (
                 <Checkboxes>
-                  {ClientesArray.map((cliente) => (
+                  {ClientesOption.map((cliente) => (
                     <label
                       key={cliente.id}
                       htmlFor={cliente.id.toString()}
@@ -140,7 +139,7 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
                         }
                       />{" "}
                       <p>{cliente.id}</p> <p>{cliente.nome}</p>{" "}
-                      <p>{cliente.cpf}</p>
+                      <p>{cliente.email}</p>
                     </label>
                   ))}
                 </Checkboxes>
@@ -157,11 +156,11 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
                   Selecione os itens
                   <OverSelect>
                     {selectedItems.map((itemId) => {
-                      const selectedItem = Options.find(
+                      const selectedItem = ItemsOption.find(
                         (option) => option.id === itemId
                       );
                       return selectedItem ? (
-                        <p key={selectedItem.id}> {selectedItem.value} </p>
+                        <p key={selectedItem.id}> {selectedItem.nome} </p>
                       ) : null;
                     })}
                   </OverSelect>
@@ -170,7 +169,7 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
               </div>
               {expanded && (
                 <Checkboxes>
-                  {Options.map((Options, index) => (
+                  {ItemsOption.map((Options, index) => (
                     <label key={index} htmlFor={Options.id} style={labelCSS}>
                       <input
                         type="checkbox"
@@ -178,8 +177,8 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
                         checked={selectedItems.includes(Options.id)}
                         onChange={() => handleCheckboxChange(Options.id)}
                       />{" "}
-                      <p>{Options.id}</p> <p>{Options.value}</p>{" "}
-                      <p>R$ {Options.price}</p>
+                      <p>{Options.id}</p> <p>{Options.nome}</p>{" "}
+                      <p>R$ {Options.valor}</p>
                     </label>
                   ))}
                 </Checkboxes>
