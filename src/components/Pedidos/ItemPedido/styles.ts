@@ -17,7 +17,7 @@ export const Container = styled.div`
 export const InfoPedido = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.5fr 0.5fr 0.3fr;
   justify-content: flex-start;
   align-items: center;
   margin: 0 auto;

@@ -9,10 +9,12 @@ interface Props {
   nomeCliente: string | null;
   itens: IItem[];
   valorTotal: number;
+  dataEntrega: string;
   statusPedido: string;
+  statusPagamento: string;
 }
 
-const Pedido: React.FC<Props> = ({ id, nomeCliente, itens, valorTotal, statusPedido }) => {
+const Pedido: React.FC<Props> = ({ id, nomeCliente, itens, valorTotal, statusPedido, dataEntrega, statusPagamento }) => {
   const itensFormatados = itens.map(item => item.nome).join(", ");
   const [openModal, setOpenModal] = useState(false);
 
@@ -24,6 +26,8 @@ const Pedido: React.FC<Props> = ({ id, nomeCliente, itens, valorTotal, statusPed
         <p>{itensFormatados}</p>
         <p>R$ {valorTotal}</p>
         <p>{statusPedido}</p>
+        <p>{statusPagamento}</p>
+        <p>{dataEntrega}</p>
         <div>
           <button>
             <EditButton id={id.toString()} onClick={() => setOpenModal(true)} />

@@ -83,7 +83,7 @@ export const Formulario = styled.div`
       color: #aaaaaa;
       float: left;
     }
-    > input {
+    > input, select {
       margin-bottom: 0.5rem;
       padding: 0 0 0 1rem;
       min-height: 34px;

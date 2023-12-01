@@ -21,16 +21,18 @@ interface IPedido {
 }
 
 const Pedidos: React.FC = () => {
-  const itens = ['Bainha', "Bolso"]
-  const itens1 = ['Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso", 'Bainha', "Bolso"]
   const [pedido, setPedido] = useState<IPedido[]>([]);
   const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
-    // Carregar itens do backend ao montar o componente
     carregarItens();
   }, []);
 
+  // const formatarDataEntrega = (data: string) => {
+  //   const [year, month, day] = data.split("-");
+  //   return `${day}-${month}-${year}`;
+  // };
+  
   const carregarItens = async () => {
     try {
       const response = await axios.get("http://localhost:8080/pedidos");
@@ -59,6 +61,8 @@ const Pedidos: React.FC = () => {
           <p>Itens</p>
           <p>Valor</p>
           <p>Status</p>
+          <p>Pagamento</p>
+          <p>Data entrega</p>
           <p>Ações</p>
         </FieldNames>
         {pedido.map((pedido_) => (
@@ -68,6 +72,8 @@ const Pedidos: React.FC = () => {
           itens={pedido_.itens}
           valorTotal={pedido_.itens.reduce((total, item) => total + item.valor, 0)}
           statusPedido={pedido_.status_pedido}
+          dataEntrega={pedido_.estimativa_entrega}
+          statusPagamento={pedido_.status_pagamento}
         />
         ))}
         <AdicionarPedido isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}

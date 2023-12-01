@@ -48,7 +48,7 @@ export const FieldNames = styled.div`
   max-width: 1280px;
   width: 100%;
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.5fr 0.5fr 0.3fr;
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;

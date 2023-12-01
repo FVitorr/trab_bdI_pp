@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import InputMask from "react-input-mask";
+import { format, isValid, parseISO  } from 'date-fns';
 import axios from "axios";
 
 import {
@@ -41,6 +43,8 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
     padding: "0.5rem",
   };
 
+ 
+  const [pagamento, setPagamento] = useState<string>("PENDENTE");
   const [ItemsOption, setItems] = useState<IItem[]>([]);
   const [ClientesOption, setClientes] = useState<ICliente[]>([]);
   const [expanded, setExpanded] = useState(false);
@@ -53,6 +57,10 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
     carregarClientes();
     carregarItens();
   }, []);
+
+  const handlePagamentoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPagamento(e.target.value);
+  };
 
   const carregarItens = async () => {
     try {
@@ -86,28 +94,58 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
       setExpanded(!expanded);
     }
   };
-
-  const [dataEntrega, setDataEntrega] = useState<string>("");
+  const formatInputDate = (inputDate: string) => {
+    const [day, month, year] = inputDate.split('/');
+    const formattedDate = `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`;
+    return formattedDate;
+  };
+  const [estimativaEntrega, setEstimativaEntrega] = useState<string>("");
   const [observacoes, setObservacoes] = useState<string>("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    if (name === "dataEntrega") {
-      setDataEntrega(value);
+    if (name === "estimativaEntrega") {
+      const formattedDate = formatInputDate(value);
+      setEstimativaEntrega(formattedDate);
     } else if (name === "status") {
       setObservacoes(value);
     }
   };
 
-  const handleSalvarClick = () => {
+  const handleSalvarClick = async () => {
     console.log("Cliente selecionado:", clienteSelecionado);
-    console.log("Itens selecionados:", selectedItems);
-    console.log("Data de entrega:", dataEntrega);
+    console.log("Itens selecionados:",selectedItems.map(item_id => parseInt(item_id, 10))),
+    console.log("Data de entrega:", estimativaEntrega);
     console.log("Observações:", observacoes);
+    console.log("Statuspagamento:", pagamento);
+    try {
 
-    // Aqui você pode realizar a lógica de envio dos dados para o backend, se necessário
+      const parts = estimativaEntrega.split('/');
+      const dataFormatada = `${parts[2]}-${parts[1]}-${parts[0]}`;
+      console.log("Data de entrega:", dataFormatada);
 
-    // Fechar o modal após salvar
-    setModalOpen();
+      const dataObj = parseISO(dataFormatada);
+      console.log("Data de entrega:", dataObj);
+
+      const response = await axios.post("http://localhost:8080/pedidos", {
+        id_cliente: clienteSelecionado,
+        itens: selectedItems.map(item_id => parseInt(item_id, 10)),
+        estimativa_entrega: dataObj,
+        observacoes: observacoes,
+        status_pedido: "PENDENTE",
+        status_pagamento: pagamento,
+      });
+  
+      console.log("Cliente selecionado:", clienteSelecionado);
+      console.log("Itens selecionados:", selectedItems);
+      console.log("Data de entrega:", dataObj);
+      console.log("Observações:", observacoes);
+      console.log("Statuspagamento:", pagamento);
+      console.log("Pedido criado com sucesso:", response.data);
+  
+      setModalOpen();
+    } catch (error) {
+      console.error("Erro ao criar pedido:", error);
+    }
   };
 
   return (
@@ -200,11 +238,24 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
               )}
             </SelectArea>
             <div>
+              <p>Pagamento</p>
+              <select
+                value={pagamento}
+                onChange={handlePagamentoChange}
+              >
+                <option value="PENDENTE">PENDENTE</option>
+                <option value="PAGO">PAGO</option>
+                <option value="CANCELADO">CANCELADO</option>
+              </select>
+            </div>
+            <div>
               <p>Data de entrega</p>
-              <input
+              <InputMask
+                mask="99/99/9999"
                 placeholder="Informe a data de entrega"
                 type="text"
-                name="dataEntrega"
+                name="estimativaEntrega"
+                value={estimativaEntrega}
                 onChange={handleInputChange}
               />
             </div>

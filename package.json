@@ -12,8 +12,10 @@
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.0",
+    "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.16.0",
     "styled-components": "^4.4.1",
     "styled-icons": "^10.47.0"
