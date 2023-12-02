@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 
 export const Container = styled.div`
@@ -22,14 +22,26 @@ export const InputButton = styled.div`
   justify-content: space-between;
   max-width: 1280px;
   width: 100%;
+
+  >div {
+    display: flex;
+    flex: 1;
+    background: #d9d9d9;
+
   > input {
     flex: 1;
+
     background: #d9d9d9;
     height: 45px;
     border-radius: 4px;
     border: none;
     padding-left: 1rem;
     color: black;
+  }
+  > button{
+    background: #d9d9d9;
+    padding: 0 1rem;
+  }
   }
 
   > button {
@@ -43,7 +55,6 @@ export const InputButton = styled.div`
     margin-left: 3rem;
   }
 `;
-
 export const FieldNames = styled.div`
   max-width: 1280px;
   width: 100%;
@@ -56,6 +67,44 @@ export const FieldNames = styled.div`
   padding-left: 1rem;
   >p{
     text-align: left;
+    width: 100%;
+    color: black;
+    font-size: 14px;
+  }
+`
+
+export const Filtro = styled.div`
+  width: 100%;
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 1280px;
+  padding: 15px;
+  border-radius: 10px;
+  > div{
+    width: 100%;
+    display: flex;
+    > section{
+      > input, select {
+        margin-bottom: 0.5rem;
+        padding: 0 0 0 1rem;
+        min-height: 34px;
+        width: 180px;
+        max-width: 180px;
+        border-radius: 4px;
+        border: none;
+        background: #d9d9d9;
+        color: gray;
+      }
+      > p {
+        width: 100%;
+        color: black;
+        font-size: 14px;
+      }
+    }
+  }
+ > p {
     width: 100%;
     color: black;
     font-size: 14px;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
-import { format, isValid, parseISO  } from 'date-fns';
+import { parseISO } from 'date-fns';
 import axios from "axios";
 
 import {
@@ -43,7 +43,7 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
     padding: "0.5rem",
   };
 
- 
+
   const [pagamento, setPagamento] = useState<string>("PENDENTE");
   const [ItemsOption, setItems] = useState<IItem[]>([]);
   const [ClientesOption, setClientes] = useState<ICliente[]>([]);
@@ -99,8 +99,10 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
     const formattedDate = `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`;
     return formattedDate;
   };
+
   const [estimativaEntrega, setEstimativaEntrega] = useState<string>("");
   const [observacoes, setObservacoes] = useState<string>("");
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === "estimativaEntrega") {
@@ -113,8 +115,8 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
 
   const handleSalvarClick = async () => {
     console.log("Cliente selecionado:", clienteSelecionado);
-    console.log("Itens selecionados:",selectedItems.map(item_id => parseInt(item_id, 10))),
-    console.log("Data de entrega:", estimativaEntrega);
+    console.log("Itens selecionados:", selectedItems.map(item_id => parseInt(item_id, 10))),
+      console.log("Data de entrega:", estimativaEntrega);
     console.log("Observações:", observacoes);
     console.log("Statuspagamento:", pagamento);
     try {
@@ -134,14 +136,14 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
         status_pedido: "PENDENTE",
         status_pagamento: pagamento,
       });
-  
+
       console.log("Cliente selecionado:", clienteSelecionado);
       console.log("Itens selecionados:", selectedItems);
       console.log("Data de entrega:", dataObj);
       console.log("Observações:", observacoes);
       console.log("Statuspagamento:", pagamento);
       console.log("Pedido criado com sucesso:", response.data);
-  
+
       setModalOpen();
     } catch (error) {
       console.error("Erro ao criar pedido:", error);
@@ -261,8 +263,8 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
             </div>
             <div>
               <p>Observações</p>
-              <input placeholder="Observações" type="text" name="status" 
-              onChange={handleInputChange}
+              <input placeholder="Observações" type="text" name="status"
+                onChange={handleInputChange}
               />
             </div>
           </Formulario>

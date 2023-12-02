@@ -46,7 +46,7 @@ const Itens: React.FC = () => {
       // Se searchTerm estiver vazio, carregar todos os itens
       carregarItens();
     } else {
-      // Senão, chamar a função de pesquisa com a string fornecida
+      // Se não, chamar a função de pesquisa com a string fornecida
       buscarItens();
     }
   };
@@ -102,10 +102,9 @@ const Itens: React.FC = () => {
         <AdicionarItem
           isOpen={openModal}
           setModalOpen={() => setOpenModal(!openModal)}
-          adicionarItem={adicionarItem}
-        >
-          Conteúdo do modal
-        </AdicionarItem>
+          //adicionarItem={adicionarItem}
+        />
+
       </Container>
   );
 };
