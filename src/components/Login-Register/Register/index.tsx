@@ -1,27 +1,39 @@
 import React, { useState } from "react";
+import axios from "axios";
 import imagem from "../../../assets/seguranca-do-computador-com-cadeado-de-login-e-senha.png";
-import { Container, Button, EmailIcon, IconWrapper, Input, ModalLogin, PasswordIcon, pass } from "./styles";
+import { Container, Button, EmailIcon, IconWrapper, Input, ModalLogin, PasswordIcon } from "./styles";
 
 const Registrar: React.FC = () => {
-  // const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simula uma requisição assíncrona para verificar o login
-    // Aqui você pode fazer uma chamada à API para autenticar o usuário
-    setTimeout(() => {
-      if (email === "user@example.com" && password === "password123") {
-        setIsLoggedIn(true);
-        <link href="\" /> // Redireciona o usuário para a página inicial
-      } else {
-        alert("Credenciais inválidas. Tente novamente.");
-      }
-    }, 1000); // Simulando uma requisição assíncrona com um atraso de 1 segundo
-  };
 
+    try {
+      if (password !== passwordConfirm) {
+        alert("As senhas não coincidem. Tente novamente.");
+        return;
+      }
+      console.log(email)
+      console.log(password)
+      const response = await axios.post("http://localhost:8080/register", {
+          email,
+          senha: password
+      }
+    );
+
+      if (response.status === 200) {
+        window.location.href = "http://localhost:5173/";
+      } else {
+        alert("Falha no registro. Tente novamente.");
+      }
+    } catch (error) {
+      alert("Erro ao registrar. Verifique sua conexão ou tente novamente mais tarde.");
+      console.error("Erro ao registrar:", error);
+    }
+  };
 
   return (
     <Container>
@@ -32,7 +44,7 @@ const Registrar: React.FC = () => {
             Onde cada agulhada conta uma história e cada linha tecida é um passo
             em direção à perfeição.
           </p>
-          <form onSubmit={handleLogin} style={{ borderRadius: '1rem 0rem 0rem 1rem' }}>
+          <form onSubmit={handleRegister} style={{ borderRadius: '1rem 0rem 0rem 1rem' }}>
             <IconWrapper>
               <EmailIcon />
               <Input
@@ -43,7 +55,6 @@ const Registrar: React.FC = () => {
                 required
               />
             </IconWrapper>
-
 
             <IconWrapper>
               <PasswordIcon />
@@ -71,7 +82,7 @@ const Registrar: React.FC = () => {
             <p>Já possui conta?<a href="http://localhost:5173/auth"> Entrar</a> </p>
           </form>
         </div>
-        <img src={imagem} />
+        <img src={imagem} alt="Imagem de segurança" />
       </ModalLogin>
     </Container>
   );

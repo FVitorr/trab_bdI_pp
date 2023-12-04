@@ -28,8 +28,8 @@ interface IPedido {
 
 const Pedidos: React.FC = () => {
   const [pedido, setPedido] = useState<IPedido[]>([]);
-  const [pagamento, setPagamento] = useState<string>("PENDENTE");
-  const [statusPedido, setStatusPedido] = useState<string>("PENDENTE");
+  const [pagamento, setPagamento] = useState<string>("");
+  const [statusPedido, setStatusPedido] = useState<string>("");
   const [dataInicial, setdataInicial] = useState<string>("");
   const [dataFinal, setdataFinal] = useState<string>("");
 
@@ -56,25 +56,35 @@ const Pedidos: React.FC = () => {
   };
 
   const handleSearch = () => {
-      buscarPedidos();
+    buscarPedidos();
   };
 
-    const buscarPedidos = async () => {
+  const buscarNome = async () => {
+    const response = await axios.get(`http://localhost:8080/pedidos/busca/${searchTerm}`);
+    setPedido(response.data);
+  }
+
+  const buscarPedidos = async () => {
     try {
+      //console.log("statusPedido:", statusPedido);
+      //console.log("statusPagamento:", pagamento);
 
       const parts1 = dataInicial.split('/');
       const dataInicialFormatada = `${parts1[2]}-${parts1[1]}-${parts1[0]}`;
-      console.log("Data de entrega:", dataInicialFormatada);
-
-      const dataInicialObj = parseISO(dataInicialFormatada);
-      console.log("Data de entrega:", dataInicialObj);
+      let dataInicialObj = null;
+      if (parts1.length > 1) {
+        dataInicialObj = parseISO(dataInicialFormatada);
+      }
+      //console.log("Data de entrega (inicial):", dataInicialObj);
 
       const parts2 = dataFinal.split('/');
       const dataFinalFormatada = `${parts2[2]}-${parts2[1]}-${parts2[0]}`;
-      console.log("Data de entrega:", dataFinalFormatada);
-
-      const dataFinalObj = parseISO(dataFinalFormatada);
-      console.log("Data de entrega:", dataFinalObj);
+      let dataFinalObj = null;
+      if (parts2.length > 1) {
+        dataFinalObj = parseISO(dataFinalFormatada);
+      }
+      //console.log("Data de entrega (final):", dataFinalObj);
+      console.log(parts2.length)
 
       const response = await axios.get("http://localhost:8080/pedidos/filtrar", {
         params: {
@@ -83,18 +93,16 @@ const Pedidos: React.FC = () => {
           statusPagamento: pagamento,
           dataInicial: dataInicialObj,
           dataFinal: dataFinalObj,
-        }
+        },
       });
       setPedido(response.data);
     } catch (error) {
       console.error("Erro ao buscar pedidos:", error);
     }
   };
-
   return (
-    <>
-      <Header />
-      <Container>
+    <Container>
+        <Header />
         <Title>
           <p>Pedidos</p>
           <p>Estes são seus pedidos cadastrados.</p>
@@ -105,7 +113,7 @@ const Pedidos: React.FC = () => {
               placeholder="Pesquisar"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)} />
-            <button onClick={handleSearch}>
+            <button onClick={buscarNome}>
               <Search_ />
             </button>
           </div>
@@ -120,6 +128,7 @@ const Pedidos: React.FC = () => {
                 value={statusPedido}
                 onChange={(e) => setStatusPedido(e.target.value)}
               >
+                <option value="">SELECIONAR</option>
                 <option value="PENDENTE">PENDENTE</option>
                 <option value="PRONTO">PRONTO</option>
                 <option value="FINALIZADO">FINALIZADO</option>
@@ -132,6 +141,7 @@ const Pedidos: React.FC = () => {
                 value={pagamento}
                 onChange={(e) => setPagamento(e.target.value)}
               >
+                <option value="">SELECIONAR</option>
                 <option value="PENDENTE">PENDENTE</option>
                 <option value="PAGO">PAGO</option>
                 <option value="CANCELADO">CANCELADO</option>
@@ -141,7 +151,7 @@ const Pedidos: React.FC = () => {
               <p>Data inicial</p>
               <InputMask
                 mask="99/99/9999"
-                placeholder="Informe a data inicial"
+                placeholder="INFORME A DATA INICIAL"
                 type="text"
                 name="dataInicial"
                 value={dataInicial}
@@ -152,14 +162,16 @@ const Pedidos: React.FC = () => {
               <p>Data final</p>
               <InputMask
                 mask="99/99/9999"
-                placeholder="Informe a data final"
+                placeholder="INFORME A DATA FINAL"
                 type="text"
                 name="dataFinal"
                 value={dataFinal}
                 onChange={(e) => setdataFinal(e.target.value)}
               />
             </section>
+            <button onClick={handleSearch} >Filtrar</button>
           </div>
+          
         </Filtro>
         <FieldNames>
           <p>Código</p>
@@ -189,7 +201,6 @@ const Pedidos: React.FC = () => {
           name={"NAME"} valor={14} status={"status"} itens={['ok', 'ok2']} />
 
       </Container>
-    </>
   );
 };
 

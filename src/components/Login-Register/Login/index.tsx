@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
+import axios from "axios"; // Importe a biblioteca axios
 import {
   Container,
   Input,
@@ -8,33 +10,41 @@ import {
   EmailIcon,
   IconWrapper
 } from "./styles";
-import { Link } from "react-router-dom";
 import imagem from "../../../assets/seguranca-do-computador-com-cadeado-de-login-e-senha.png";
-import logo from "../../../assets/Group 29 (1).png";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const history = useHistory();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simula uma requisição assíncrona para verificar o login
-    // Aqui você pode fazer uma chamada à API para autenticar o usuário
-    setTimeout(() => {
-      if (email === "user@gmail.com" && password === "123") {
-        <Link to="/" />;
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/login", {
+            email,
+            senha: password
+        }
+      );
+
+      if (response.status === 200) {
+        window.location.href = "http://localhost:5173/home";
       } else {
         alert("Credenciais inválidas. Tente novamente.");
       }
-    }, 1000); // Simulando uma requisição assíncrona com um atraso de 1 segundo
+    } catch (error) {
+      alert("Erro ao autenticar. Verifique sua conexão ou tente novamente mais tarde.");
+      console.error("Erro ao autenticar:", error);
+    }
   };
 
   return (
     <Container>
       <ModalLogin>
-        <img src={imagem} />
+        <img src={imagem} alt="Imagem de segurança" />
         <div>
-          <h1>Bem vindo a Ponto Perfeito!</h1>
+          <h1>Bem-vindo a Ponto Perfeito!</h1>
           <p>
             Onde cada agulhada conta uma história e cada linha tecida é um passo
             em direção à perfeição.

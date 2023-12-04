@@ -6,7 +6,6 @@ import Pedidos from "./components/Pedidos/PaginaPedidos/index";
 import Main from "./components/Main/index";
 import Clientes from "./components/Clientes/PaginaClientes";
 import Itens from "./components/Itens/PaginaItens";
-import Pagamentos from "./components/Pagamentos/PaginaPagamentos";
 import Registrar from "./components/Login-Register/Register";
 
 
@@ -14,13 +13,12 @@ const Appl: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/auth" element={<Login />} exact />
+                <Route path="/" element={<Login />} exact={true} />
                 <Route path="/register" element={<Registrar />} />
-                <Route path="/" element={<Main />} />
+                <Route path="/home" element={<Main />} />
                 <Route path="/pedidos" element={<Pedidos />} />
                 <Route path="/clientes" element={<Clientes />} />
                 <Route path="/itens" element={<Itens />} />
-                <Route path="/pagamentos" element={<Pagamentos />} />
             </Routes>
         </BrowserRouter>
     )

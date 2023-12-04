@@ -2,17 +2,16 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  top: 10rem;
-  padding: 15vh 0px 70px 0px;
   background-color: #f2f2f2;
   min-height: 100vh;
   width: 100vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
+  margin-top:8.5rem ;
+  /* background-color: red; */
 `;
 
 export const InputButton = styled.div`
@@ -102,6 +101,15 @@ export const Filtro = styled.div`
         color: black;
         font-size: 14px;
       }
+    }
+    >button{
+      height:40px;
+      margin-top:1rem;
+      color: white;
+      background: #327AD9;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
     }
   }
  > p {

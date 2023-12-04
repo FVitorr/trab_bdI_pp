@@ -53,7 +53,7 @@ const EditarPedido: React.FC<Props> = ({
   const [pagamento, setPagamento] = useState<string>("PENDENTE");
   const [observacoes, setObservacao] = useState<string>(observacao);
   const [dataEntrega, setDataEntrega] = useState<string>(propDataEntrega);
-  const [estimativaEntrega, setEstimativaEntrega] = useState<string>(dataFormatada);
+  const [estimativaEntrega, setEstimativaEntrega] = useState<string>(propDataEntrega);
   const [statusPedido, setStatusPedido] = useState<string>(propStatusPedido);
   const [statusPagamento, setStatusPagamento] = useState<string>(propStatusPagamento);
 
@@ -205,7 +205,7 @@ const EditarPedido: React.FC<Props> = ({
                 placeholder="Informe a data de entrega"
                 type="text"
                 name="estimativaEntrega"
-                value={estimativaEntrega}
+                value={dataFormatada}
                 onChange={handleDataEntregaChange}
               />
             </div>

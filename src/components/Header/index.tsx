@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     <Container>
       <img src={logo} />
       <div>
-        <Link to="/">
+        <Link to="/home">
           <button>Home</button>
         </Link>
         <Link to="/itens">
@@ -20,9 +20,6 @@ const Header: React.FC = () => {
         </Link>
         <Link to="/pedidos">
           <button>Pedidos</button>
-        </Link>
-        <Link to="/pagamentos">
-          <button>Pagamentos</button>
         </Link>
       </div>
     </Container>
