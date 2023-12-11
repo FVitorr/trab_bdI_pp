@@ -11,7 +11,6 @@ export const Container = styled.div`
   justify-content: flex-start;
   gap: 1rem;
   margin-top:8.5rem ;
-  /* background-color: red; */
 `;
 
 export const InputButton = styled.div`

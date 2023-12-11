@@ -27,9 +27,6 @@ const AdicionarItem: React.FC<Props> = ({ isOpen, setModalOpen }) => {
         valor: parseFloat(valor),
         descricao,
       });
-
-      console.log("Item criado com sucesso:", response.data);
-
       setModalOpen();
     } catch (error) {
       console.error("Erro ao criar item:", error);

@@ -19,7 +19,6 @@ const Itens: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // Carregar itens do backend ao montar o componente
     carregarItens();
   }, []);
 
@@ -43,10 +42,8 @@ const Itens: React.FC = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim() === "") {
-      // Se searchTerm estiver vazio, carregar todos os itens
       carregarItens();
     } else {
-      // Se não, chamar a função de pesquisa com a string fornecida
       buscarItens();
     }
   };
@@ -54,7 +51,6 @@ const Itens: React.FC = () => {
   const adicionarItem = async (novoItem: IItem) => {
     try {
       await axios.post("http://localhost:8080/itens", novoItem);
-      // Recarregar a lista de itens após adicionar um novo item
       carregarItens();
     } catch (error) {
       console.error("Erro ao adicionar item:", error);
@@ -102,7 +98,6 @@ const Itens: React.FC = () => {
         <AdicionarItem
           isOpen={openModal}
           setModalOpen={() => setOpenModal(!openModal)}
-          //adicionarItem={adicionarItem}
         />
 
       </Container>

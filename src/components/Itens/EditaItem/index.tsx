@@ -6,7 +6,6 @@ import { Container, ModalStyle, Formulario, Buttons } from "./style";
 interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
-
   id: number
   name: string;
   valor: number;
@@ -41,7 +40,6 @@ const EditarItem: React.FC<Props> = ({
         valor: parseFloat(valor_),
         descricao: descricao_
       });
-
       setModalOpen();
     } catch (error) {
       console.error("Erro ao editar item:", error);

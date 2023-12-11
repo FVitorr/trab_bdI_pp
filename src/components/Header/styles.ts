@@ -25,7 +25,7 @@ export const Container = styled.div`
     background: #327AD9;
     color: white;
     &:hover {
-      color: #F1C40F; /* Altere para a cor desejada ao passar o mouse */
+      color: #F1C40F;
     }
   }
 `;

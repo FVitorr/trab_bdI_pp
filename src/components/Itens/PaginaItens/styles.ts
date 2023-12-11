@@ -12,7 +12,6 @@ export const Container = styled.div`
   justify-content: flex-start;
   gap: 1rem;
   margin-top:8.5rem ;
-  /* background-color: red; */
 `;
 
 export const OverSelect = styled.div`
@@ -21,7 +20,7 @@ export const OverSelect = styled.div`
   font-size: 12px;
   gap: 3px;
   overflow: hidden;
-  background-color: #f2f2f2; /* Adicione a mesma cor de fundo do Container */
+  background-color: #f2f2f2;
 `;
 
 
@@ -194,7 +193,7 @@ export const Checkboxes = styled.i`
   background-color:white;
   width:98%;
   max-height: 310px;
-  overflow-y: auto; /* Permite rolar o conteúdo dentro do contêiner */
+  overflow-y: auto;
   &::-webkit-scrollbar {
   display: none;
 }

@@ -39,7 +39,7 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
     color: "#AAAAAA",
     display: "grid",
     gridTemplateColumns: "0.5fr 0.5fr 1fr 1fr",
-    justifyItems: "start", // Alinha os itens à esquerda
+    justifyItems: "start",
     padding: "0.5rem",
   };
 
@@ -53,7 +53,6 @@ const AdicionarPedido: React.FC<Props> = ({ isOpen, setModalOpen }) => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   useEffect(() => {
-    // Carregar itens do backend ao montar o componente
     carregarClientes();
     carregarItens();
   }, []);

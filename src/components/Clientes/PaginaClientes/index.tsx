@@ -26,7 +26,6 @@ const Clientes: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // Carregar itens do backend ao montar o componente
     carregarClientes();
   }, []);
 
@@ -50,10 +49,8 @@ const Clientes: React.FC = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim() === "") {
-      // Se searchTerm estiver vazio, carregar todos os itens
       carregarClientes();
     } else {
-      // Senão, chamar a função de pesquisa com a string fornecida
       buscarClientes();
     }
   };
@@ -61,7 +58,6 @@ const Clientes: React.FC = () => {
   const adicionarCliente = async (novoCliente: ICliente) => {
     try {
       await axios.post("http://localhost:8080/clientes", novoCliente);
-      // Recarregar a lista de itens após adicionar um novo Cliente
       carregarClientes();
     } catch (error) {
       console.error("Erro ao adicionar Cliente:", error);

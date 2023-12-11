@@ -72,10 +72,7 @@ const EditarPedido: React.FC<Props> = ({
   };
 
   const handleDataEntregaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const inputValue = e.target.value;
     const { name, value } = e.target
-    // Verifica se a data é válida antes de tentar convertê-la
-    // const selectedDate = new Date(inputValue);
     if (name === "estimativaEntrega") {
       const formattedDate = formatInputDate(value);
       setEstimativaEntrega(formattedDate);

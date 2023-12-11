@@ -19,10 +19,6 @@ const Item: React.FC<Props> = ({ id, name, valor, descricao }) => {
         const url = `http://localhost:8080/itens/${id}`;
         console.log(url)
       await axios.delete(url);
-
-      // Aqui você pode adicionar lógica adicional se necessário após a exclusão
-
-      // Fechar o modal se estiver aberto
       setOpenModal(false);
     } catch (error) {
       console.error("Erro ao excluir item:", error);

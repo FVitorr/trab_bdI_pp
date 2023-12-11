@@ -17,7 +17,6 @@ export const ModalStyle = styled.div`
   left: 50%;
   min-width: 700px;
   height: auto;
-  /* padding-bottom: 1.5rem; */
   transform: translate(-50%, -50%);
   background-color: #262626;
   border-radius: 5px;

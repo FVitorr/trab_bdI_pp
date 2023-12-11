@@ -7,7 +7,6 @@ import axios from "axios";
 import { Container, Title, InputButton, FieldNames, Filtro } from "./styles";
 import Header from "../../Header";
 import Pedido from "../ItemPedido";
-// import PedidosAbertos from "../PedidosAbertos/index";
 import AdicionarPedido from "../CadastraPedido";
 import { ICliente } from "../../Clientes/PaginaClientes";
 import { IItem } from "../../Itens/PaginaItens";
@@ -40,15 +39,9 @@ const Pedidos: React.FC = () => {
     carregarPedidos();
   }, []);
 
-  // const formatarDataEntrega = (data: string) => {
-  //   const [year, month, day] = data.split("-");
-  //   return `${day}-${month}-${year}`;
-  // };
-
   const carregarPedidos = async () => {
     try {
       const response = await axios.get("http://localhost:8080/pedidos");
-      //console.log("ITENSS",response.data);
       setPedido(response.data);
     } catch (error) {
       console.error("Erro ao carregar itens:", error);
@@ -66,16 +59,12 @@ const Pedidos: React.FC = () => {
 
   const buscarPedidos = async () => {
     try {
-      //console.log("statusPedido:", statusPedido);
-      //console.log("statusPagamento:", pagamento);
-
       const parts1 = dataInicial.split('/');
       const dataInicialFormatada = `${parts1[2]}-${parts1[1]}-${parts1[0]}`;
       let dataInicialObj = null;
       if (parts1.length > 1) {
         dataInicialObj = parseISO(dataInicialFormatada);
       }
-      //console.log("Data de entrega (inicial):", dataInicialObj);
 
       const parts2 = dataFinal.split('/');
       const dataFinalFormatada = `${parts2[2]}-${parts2[1]}-${parts2[0]}`;
@@ -83,8 +72,6 @@ const Pedidos: React.FC = () => {
       if (parts2.length > 1) {
         dataFinalObj = parseISO(dataFinalFormatada);
       }
-      //console.log("Data de entrega (final):", dataFinalObj);
-      console.log(parts2.length)
 
       const response = await axios.get("http://localhost:8080/pedidos/filtrar", {
         params: {

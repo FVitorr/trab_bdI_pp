@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
-import axios from "axios"; // Importe a biblioteca axios
+import axios from "axios";
 import {
   Container,
   Input,
@@ -15,11 +14,9 @@ import imagem from "../../../assets/seguranca-do-computador-com-cadeado-de-login
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const history = useHistory();
-
+  
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         "http://localhost:8080/login", {

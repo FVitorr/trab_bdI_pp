@@ -6,7 +6,7 @@ import { Container, ModalStyle, Formulario, Buttons } from "./style";
 interface Props {
   isOpen: boolean;
   setModalOpen: () => void;
-  id: number; // Adicionado o campo id
+  id: number;
   nome: string;
   rua: string;
   bairro: string;

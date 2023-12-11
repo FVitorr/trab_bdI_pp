@@ -18,11 +18,8 @@ interface Props {
 const Pedido: React.FC<Props> = ({ id, nomeCliente, itens, valorTotal, statusPedido, dataEntrega, statusPagamento, observacao }) => {
   const partesData = dataEntrega.split("-");
   const dataFormatada: string = `${partesData[2]}-${partesData[1]}-${partesData[0]}`;
-  console.log(dataFormatada);
   const itensFormatados = itens.map(item => item.nome).join(", ");
-  
   const [openModal, setOpenModal] = useState(false);
-
   const handleDelete = async () => {
     try {
         const url = `http://localhost:8080/pedidos/${id}`;
