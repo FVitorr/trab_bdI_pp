@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
 import axios from "axios";
-import { parseISO  } from 'date-fns';
+import { parseISO } from 'date-fns';
 
 import {
-  Container, 
+  Container,
   ModalStyle,
   Formulario,
   Buttons,
@@ -37,7 +37,7 @@ const EditarPedido: React.FC<Props> = ({
 }) => {
   const partesData = propDataEntrega.split("-");
   const dataFormatada: string = `${partesData[2]}-${partesData[1]}-${partesData[0]}`;
-  
+
   const labelCSS = {
     border: "1px solid black",
     color: "#AAAAAA",
@@ -64,7 +64,7 @@ const EditarPedido: React.FC<Props> = ({
       setSelectedItems([...selectedItems, id]);
     }
   };
-  
+
   const formatInputDate = (inputDate: string) => {
     const [day, month, year] = inputDate.split('/');
     const formattedDate = `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`;
@@ -80,7 +80,7 @@ const EditarPedido: React.FC<Props> = ({
       setObservacao(value);
     }
 
-  };  
+  };
 
   const handlePagamentoChange = (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -103,13 +103,13 @@ const EditarPedido: React.FC<Props> = ({
       const initialItemIds = itens.map((item) => item.id.toString());
       setSelectedItems(initialItemIds);
     }
-    console.log(dataEntrega); 
-    
+    console.log(dataEntrega);
+
   }, [itens]);
 
   const handleSalvarClick = async () => {
-    console.log("Itens selecionados:",selectedItems.map(item_id => parseInt(item_id, 10))),
-    console.log("Data de entrega:", estimativaEntrega);
+    console.log("Itens selecionados:", selectedItems.map(item_id => parseInt(item_id, 10))),
+      console.log("Data de entrega:", estimativaEntrega);
     console.log("Observações:", observacoes);
     console.log("Statuspagamento:", statusPagamento);
     console.log("StatusPedidos:", statusPedido);
@@ -194,7 +194,7 @@ const EditarPedido: React.FC<Props> = ({
                 </Checkboxes>
               )}
             </SelectArea>
-            
+
             <div>
               <p>Data de entrega</p>
               <InputMask
@@ -202,7 +202,7 @@ const EditarPedido: React.FC<Props> = ({
                 placeholder="Informe a data de entrega"
                 type="text"
                 name="estimativaEntrega"
-                value={dataFormatada}
+                // value={dataFormatada}
                 onChange={handleDataEntregaChange}
               />
             </div>

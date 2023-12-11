@@ -8,9 +8,10 @@ export const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: 2rem;
   justify-content: flex-start;
   gap: 1rem;
-  margin-top:8.5rem ;
+  margin-top:12rem ;
 `;
 
 export const InputButton = styled.div`
@@ -121,6 +122,7 @@ export const Filtro = styled.div`
 export const Title = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 12rem;
   width: 100%;
   max-width: 1280px;
   p:nth-child(1){

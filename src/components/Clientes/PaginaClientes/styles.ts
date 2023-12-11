@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 100vw;
   margin: 0 auto;
   display: flex;
+  padding-bottom: 2rem;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
@@ -90,6 +91,7 @@ export const FieldNames = styled.div`
 export const Title = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 10rem;
   width: 100%;
   max-width: 1280px;
   p:nth-child(1){
